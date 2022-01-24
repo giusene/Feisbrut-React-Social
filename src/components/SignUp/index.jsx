@@ -45,6 +45,7 @@ const SignUp = ({ setForm }) => {
             },
             friendreq: [],
             friendrec: [],
+            notify: [],
             messages: {},
             confirmed: false,
         })
