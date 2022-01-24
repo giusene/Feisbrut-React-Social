@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import styles from './MainNav.module.scss';
-import { TiHomeOutline, TiFlash, TiGroup, TiMessage, TiZoom } from "react-icons/ti";
+import { TiHomeOutline, TiFlash, TiGroup, TiZoom } from "react-icons/ti";
 import CountBadge from '../CountBadge';
 
 
