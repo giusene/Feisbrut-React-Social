@@ -12,17 +12,28 @@
         border-radius: 50%;
         background-size: cover;
     }
-
-    .userName{
-        flex-grow: 1;
-        font-size: 12px;
-        font-weight: 700;
-        color: #6c757d;
+    a{
+        .userName{
+            flex-grow: 1;
+            font-size: 12px;
+            font-weight: 700;
+            color: #6c757d;
+        }
     }
-    .userStatus{
-        width: 8px;
-        height: 8px;
+    button {
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
         border-radius: 50%;
-        background-color: green;
+        line-height: 35px;
+        border: none;
+        background-color: $bg-color;
+        color: $text-color;
+        font-size: 20px;
+        cursor: pointer;
+        &:disabled, &[disabled] {
+            cursor: default;
+            opacity: 0.4;
+        }
     }
 }

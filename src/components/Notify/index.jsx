@@ -20,7 +20,7 @@ const Notify = ({ notify, removelist }) => {
                         <> ha messo mi piace al tuo <Link to={'/post'} state={notify.postID}><span>Post!!!</span></Link></> :
                         notify.type === 'comment' ?
                             <> ha commentato il tuo <Link to={'/post'} state={notify.postID}><span>Post!!!</span></Link></> :
-                            notify.type === 'friendconfirmed' ?
+                            notify.type === 'friendConfirmed' ?
                                 <> ti ha inviato una richiesta d'amicizia</> :
                                 <> ha accettato la richiesta d'amiciza</>
                     }
