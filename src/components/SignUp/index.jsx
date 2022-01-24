@@ -6,6 +6,7 @@ import { sendEmail, httpPOST } from '../../libs/http';
 import { TiMail, TiKeyOutline, TiUserOutline, TiUser } from "react-icons/ti";
 
 
+
 const SignUp = ({ setForm }) => {
     const [message, setMessage] = useState('');
 

@@ -24,6 +24,7 @@ const LoginForm = ({setForm}) => {
             if (data.response === 'Utente non trovato') {
                 setMessage('Email o Password errati')
             } else {
+                console.log(data)
                 dispatch(setLogin({ ...data[0], logged: true }))
             }
         }).catch(e => setMessage('Errore di connessione'))

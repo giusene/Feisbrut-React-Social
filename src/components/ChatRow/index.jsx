@@ -8,7 +8,6 @@ const ChatRow = ({ content, friend }) => {
 
     return (
         <div className={styles.main}>
-        {console.log(content)}
                 {content.author === user.id ?
                         <div className={styles.me}>
                             <div className={styles.photo} style={{ backgroundImage: `url(${user.photo})` }}></div>

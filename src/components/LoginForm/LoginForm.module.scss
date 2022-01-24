@@ -61,6 +61,10 @@
                 border-radius: $border-radius;
                 border: none;
                 cursor: pointer;
+                &:disabled, &[disabled] {
+                    cursor: default;
+                    opacity: 0.4;
+                }
             }
         }
         .register {

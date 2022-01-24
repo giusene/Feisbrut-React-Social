@@ -14,11 +14,33 @@
         border-radius: 50%;
         background-size: cover;
         position: relative;
-        .status{
+        .green{
             position: absolute;
             z-index: 2;
             border: 2px solid $white;
             background-color: green;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            bottom: 5px;
+            right: 5px;
+        }
+        .yellow{
+            position: absolute;
+            z-index: 2;
+            border: 2px solid $white;
+            background-color: yellow;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            bottom: 5px;
+            right: 5px;
+        }
+        .gray{
+            position: absolute;
+            z-index: 2;
+            border: 2px solid $white;
+            background-color: gray;
             width: 15px;
             height: 15px;
             border-radius: 50%;

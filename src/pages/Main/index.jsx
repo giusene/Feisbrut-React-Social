@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
 import styles from './Main.module.scss';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 import FriendsList from '../../components/FriendsList';
-import SideNav from '../../components/SideNav';
 import FriendRequest from '../../components/FriendRequest';
 
 import Feeds from '../Feeds';
@@ -16,21 +16,38 @@ import People from '../People';
 import Messages from '../Messages';
 import Discussion from '../Discussion';
 import PostPage from '../PostPage';
+import RandomUsers from '../../components/RandomUsers';
+
+
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserReload } from './../../libs/loginSlice';
+
+
 
 
 const Main = () => {
+    const user = useSelector(state => state.login.value);
+    const dispatch = useDispatch();
+    const test = useSelector(state => state.login.userReload);
+    
+    
+
     return (
         <div className={styles.main}>
             <Header />
             <div className={styles.content}>
                 <aside className={styles.left}>
+                {user.friendrec.lenght > 0 &&
                     <FriendRequest />
-                    <SideNav />
+                }
+                    <RandomUsers />
                 </aside>
                 <aside className={styles.right}>
                     <FriendsList />
                 </aside>
                 <main>
+                <button onClick={() => dispatch(setUserReload())}>reload</button>
+                {console.log(test)}
                     <Routes>
                         <Route path="/" element={<Feeds />} />
                         <Route path="/Feisbrut-React-Social" element={<Feeds />} />

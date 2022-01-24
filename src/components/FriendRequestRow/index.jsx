@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLogin } from './../../libs/loginSlice';
 import { Link } from 'react-router-dom';
 import styles from './FriendRequestRow.module.scss';
 import { httpPOST } from '../../libs/http';
@@ -6,8 +7,10 @@ import { httpPOST } from '../../libs/http';
 import { TiTick, TiTimes } from "react-icons/ti";
 import { useState } from 'react';
 
+
 const FriendRequestRow = ({ friendContent }) => {
     const user = useSelector(state => state.login.value);
+    const dispatch = useDispatch();
 
     const [disabled, setDisabled] = useState(false)
 
@@ -17,10 +20,15 @@ const FriendRequestRow = ({ friendContent }) => {
             myId: myId,
             friendId: friendId,
             confirmed: true
+        }).then(data => {
+            httpPOST('/checksession', {
+                userId: user.id,
+                login_time: user.login_time,
+                user_token: user.user_token,
+                logged: user.logged,
+                checkSession: user.checkSession
+              }).then(data => dispatch(setLogin(data)))
         })
-            .then(data => {
-                // AGGIORNARE PROFILO
-            })
     }
 
     const decline = (myId, friendId) => {

@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+
 import LoginPage from "./pages/LoginPage";
 import Main from './pages/Main';
 
 function App() {
-  const login = useSelector(state => state.login.value)
-
+  const login = useSelector(state => state.login.value);
 
   return (
     <>

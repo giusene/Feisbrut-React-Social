@@ -15,7 +15,7 @@ const Friends = () => {
         <div className={styles.main}>
             <PagesHeader title={'Amici'} />
             <div className={styles.content}>
-            {user.friends.map(friend => <UserCard key={friend.id} user={friend} />)}
+            {user.friends.map(friend => <UserCard key={friend.id} user={friend} status />)}
             </div>
         </div>
     )

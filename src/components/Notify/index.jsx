@@ -21,8 +21,8 @@ const Notify = ({ notify, removelist }) => {
                         notify.type === 'comment' ?
                             <> ha commentato il tuo <Link to={'/post'} state={notify.postID}><span>Post!!!</span></Link></> :
                             notify.type === 'friendConfirmed' ?
-                                <> ti ha inviato una richiesta d'amicizia</> :
-                                <> ha accettato la richiesta d'amiciza</>
+                                <> ha accettato la richiesta d'amiciza</> :
+                                <> ti ha inviato una richiesta d'amicizia</>
                     }
                 </div>
                 <div className={styles.date}>

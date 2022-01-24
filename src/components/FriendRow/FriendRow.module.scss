@@ -22,10 +22,22 @@ a{
         font-weight: 700;
         color: #6c757d;
     }
-    .userStatus{
+    .green{
         width: 8px;
         height: 8px;
         border-radius: 50%;
         background-color: green;
+    }
+    .yellow{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: yellow;
+    }
+    .gray{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: gray;
     }
 }
