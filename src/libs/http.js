@@ -100,7 +100,7 @@ const sendEmail = (email, res, name, type) => {
         user_id: process.env.REACT_APP_EMAIL_USER_ID,
         template_params: {
             'destinatario': email,
-            'message': `${res}`,
+            'message': `${window.location.href+type+res}`,
             'to_name': name
         }
     }
