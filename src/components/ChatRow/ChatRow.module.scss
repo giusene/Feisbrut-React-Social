@@ -1,0 +1,83 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    .dx {
+        padding: 5px 10px;
+        border-radius: 6px;
+        margin-left: 5px;
+        width: 60%;
+        margin: 0 10px;
+        color: $white;
+
+        p{
+            margin: 5px 0;
+            font-size: 12px;
+            .read {
+                width: 8px;
+                height: 8px;
+                margin-right: 5px;
+                background-color: $main;
+                border-radius: 50%;
+                display: inline-block;
+            }
+        }
+        .name{
+            font-weight: 700;
+            color: $text-color;
+        }
+        .text{
+            color: $light-text-color;
+        }
+        .smallT{
+            margin-top: 10px;
+            font-size: 11px;
+        }
+    }
+
+    .friend{
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+
+        .photo{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-size: cover;
+        }
+        .dx {
+            background-color: $bg-color;
+            color: $text-color;
+        }
+    }
+
+    .me{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        margin-bottom: 20px;
+
+        .photo{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-size: cover;
+        }
+        .dx {
+            background-color: $mainLight;
+        }
+        p {
+            font-size: 12px;
+            span::after {
+                background-color: #fff;
+            }
+        }
+        .name{
+            font-weight: 700;
+            color: $text-color;
+        }
+        .text{
+            color: $white;
+        }
+    }
+}

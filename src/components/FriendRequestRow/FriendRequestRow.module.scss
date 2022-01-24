@@ -1,0 +1,28 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+    .userImg{
+        width: 35px;
+        height: 35px;
+        margin-right: 5px;
+        border-radius: 50%;
+        background-size: cover;
+    }
+
+    .userName{
+        flex-grow: 1;
+        font-size: 12px;
+        font-weight: 700;
+        color: #6c757d;
+    }
+    .userStatus{
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: green;
+    }
+}

@@ -1,0 +1,43 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: $headerH;
+    padding: 0 20px;
+    background-color: $white;
+    box-shadow: $shadow;
+    
+    .left{
+        width: 33.3%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .center{
+        width: 33.3%;
+        display: flex;
+        justify-content: center;
+    }
+    .right {
+        width: 33.3%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    @media all and (max-width: 767px) {
+        .left, .center, .right{
+            width: auto;
+        }
+        .left {
+            flex-grow: 1;
+        }
+        &{
+            justify-content: flex-start;
+        }
+      }
+}

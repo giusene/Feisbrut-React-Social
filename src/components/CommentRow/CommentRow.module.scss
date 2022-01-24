@@ -1,0 +1,40 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    display: flex;
+    margin-bottom: 10px;
+    .img{
+        width: 35px;
+        height: 35px;
+        background-size: cover;
+        border-radius: 50%;
+        margin: 5px 5px 0 0 ;
+    }
+    .comment{
+        flex-grow: 1;
+        .text{
+            padding: 10px;
+            border-radius: $border-radius;
+            background-color: $bg-color;
+            a{
+                text-decoration: none;
+            }
+            h4{
+                text-transform: none;
+                margin-bottom: 10px;
+                color: $text-color;
+                font-size: 12px;
+            }
+            p{ 
+                font-size: 12px;
+            }
+        }
+        .date{
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+            color: $light-text-color;
+        }
+    }
+    
+}

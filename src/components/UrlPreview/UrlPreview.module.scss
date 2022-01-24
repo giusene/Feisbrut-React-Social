@@ -1,0 +1,54 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    position: relative;
+
+    .close{
+        position: absolute;
+        z-index: 2;
+        font-size: 35px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        top: 10px;
+        right: 10px;
+        line-height: 30px;
+        color: $white;
+        background-color: rgba(0, 0, 0, 0.708);
+        text-align: center;
+        cursor: pointer;
+    }
+    a{
+        text-decoration: none;
+        color: inherit;
+        .content {
+            width: 100%;
+            background-size: cover;
+            background-color: grey;
+            background-position: center;
+            border-radius: $border-radius;
+            height: 350px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+            .footer{
+                background-color: $bg-color;
+                width: 100%;
+                padding: 10px;
+                .url{
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                }
+                .title{
+                    font-size: 14px;
+                    font-weight: 700;
+                }
+                .description{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    max-width: $componentW;
+    margin: 0 auto;
+    .content{
+        margin-top: 10px;
+        background-color: $white;
+        border-radius: $border-radius;
+        padding: 20px;
+    }
+    .contentHeader{
+        padding: 0px 20px;
+        background-color: $white;
+        margin-top: 0px;
+        border-radius: $border-radius;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 700;
+        color: $light-text-color;
+        max-height: 0px;
+        overflow: hidden;
+        transition: $btn-trans;
+        &.active{
+            margin-top: 10px;
+            padding: 20px;
+            max-height: 100px;
+        }
+        button{
+            height: 40px;
+            width: 40px;
+            margin-right: 5px;
+            border-radius: $border-radius;
+            background-color: $bg-color;
+            color: $light-text-color;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 45px;
+            transition: $btn-trans;
+            &:disabled, &[disabled] {
+                cursor: default;
+                opacity: 0.4;
+                &:hover{
+                    background-color: $main;
+                    color: $white;
+                    cursor: default; 
+                }
+            }
+        }
+        p{
+            transition: $btn-trans;
+        }
+    }
+}

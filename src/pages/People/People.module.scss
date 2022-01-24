@@ -1,0 +1,82 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    max-width: $componentW;
+    margin: 0 auto;
+    .contentHeader{
+        padding: 20px;
+        background-color: $white;
+        margin-top: 10px;
+        border-radius: $border-radius;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .inputWrapper{
+            width: 300px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            span{
+                position: absolute;
+                font-size: 28px;
+                top: 5px;
+                left: 5px;
+                z-index: 2;
+                height: 60px;
+                width: 30px;
+                color: $light-text-color;
+            }
+
+            input {
+                height: 40px;
+                line-height: 40px;
+                padding-left: 40px;
+                width: 100%;
+                display: block;
+                border: 2px #eee solid;
+                border-radius: $border-radius;
+                font-weight: 600;
+                color: $text-color;
+            }
+            button{
+                height: 40px;
+                width: 40px;
+                margin-left: 5px;
+                border-radius: $border-radius;
+                background-color: $bg-color;
+                color: $light-text-color;
+                border: none;
+                cursor: pointer;
+                font-size: 20px;
+                line-height: 45px;
+            }
+        }
+        .query{
+            font-size: 12px;
+            font-weight: 700;
+            color: $light-text-color;
+            span{
+                color: $text-color;
+            }
+        }
+        @media all and (max-width: 575px) {
+            &{
+                flex-direction: column;
+            }
+            .inputWrapper{ 
+                width: 100%;
+            }
+            .query{
+                margin-top: 20px;
+            }
+          }
+    }
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,13 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    max-width: $componentW;
+    margin: 0 auto;
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        margin-top: 10px;
+    }
+}

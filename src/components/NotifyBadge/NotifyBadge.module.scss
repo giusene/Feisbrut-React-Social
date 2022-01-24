@@ -1,0 +1,38 @@
+@import "./../../libs/variables.scss";
+
+
+.heart{
+    height: 22px;
+    width: 22px;
+    background-color: $red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 2px;
+    color: $white;
+}
+
+.comment{
+    height: 22px;
+    width: 22px;
+    background-color: $main;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 2px;
+    color: $white;
+}
+
+.friend{
+    height: 22px;
+    width: 22px;
+    background-color: $greenLight;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 2px;
+    color: $white;
+}

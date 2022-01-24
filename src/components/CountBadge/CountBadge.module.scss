@@ -1,0 +1,19 @@
+@import "./../../libs/variables.scss";
+
+
+.badge{
+    height: 22px;
+    width: 22px;
+    background-color: $red;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 2px;
+    color: $white;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}

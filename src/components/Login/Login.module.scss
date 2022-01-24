@@ -1,0 +1,100 @@
+@import "./../../libs/variables.scss";
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    position: relative;
+
+    .profileImg{
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+        border-radius: 50%;
+        margin: 0 5px 0 0;
+    }
+
+    .profileName{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .profileBtn{
+        font-size: 16px;
+        margin: 5px 0 0 5px;
+    }
+    @media all and (max-width: 767px) {
+        .profileName, .profileBtn  {
+            display: none;
+        }
+        .profileImg {
+            width: 40px;
+            height: 40px;
+            margin: 0 0 0 5px;
+        }
+    }
+    .dropDown{
+        position: absolute;
+        padding: 10px 0;
+        background-color: $white;
+        top: 50px;
+        z-index: 2;
+        box-shadow: $shadow;
+        border-radius: $border-radius;
+        // max-height: 0px;
+        animation-duration: 0.5s;
+        animation-name: openDropDown;
+        &::before{
+            display: block;
+            position: absolute;
+            content: '';
+            width: 15px;
+            height: 15px;
+            background-color: $white;
+            transform: rotate(45deg);
+            top: -9px;
+            right: 13px;
+            border-top: 1px solid #e1e1e1;
+            border-left: 1px solid #e1e1e1;
+        }
+        ul{
+            list-style: none;
+            a{
+                display: flex;
+                align-items: center;
+                text-transform: inherit;
+                color: $text-color;
+                font-weight: 600;
+                font-size: 12px;
+                padding: 5px 15px;
+                &:hover{
+                    background-color: $main;
+                    color: $white;
+                    span{
+                        color: $white;
+                    }
+                }
+                span{
+                    margin-right: 10px;
+                    font-size: 28px;
+                    color: $light-text-color;
+                }
+            }
+        }
+    }
+}
+
+@keyframes openDropDown {
+    0%{
+        max-height: 0px;
+        overflow: hidden;
+    }
+    20%{
+        overflow: visible; 
+    }
+    100%{
+        max-height: 500px;
+        overflow: visible;
+    }
+    
+}

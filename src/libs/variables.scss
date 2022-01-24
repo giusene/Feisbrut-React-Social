@@ -1,0 +1,44 @@
+// colors
+$main: #3498db;
+$mainDark: #226fa2;
+$mainLight: #91bedd;
+$white: #fff;
+$green: #42b72a;
+$red: #eb5151;
+$greenDark: #1f800b;
+$greenLight: #10d876;
+$light-grey : #ecf0f1;
+$text-color: #1c1e21;
+$secondary-text-color: #495057;
+$light-text-color: #adb5bd;
+$bg-color: #f0f2f5;
+$bar-color: #afbbc7;
+
+$btnBg: #343a40;
+
+$border-radius: 7px;
+
+$componentRadius: 15px;
+
+// btns transition
+$btn-trans: all 0.2s ease;
+
+// shadow
+$shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+
+// ELEMENTS SIZES
+$headerH: 70px;
+$footerH: 70px;
+$asideW: 300px;
+
+$pageHeaderH: 80px;
+
+$componentW: 960px;
+
+
+@font-face {
+    font-family: "Facebook";
+    src: url("./fonts/facebook.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }

@@ -1,0 +1,15 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    font-family: 'Facebook';
+    font-size: 35px;
+    cursor: pointer;
+    margin: 0;
+    letter-spacing: -1px;
+    color: $main;
+    @media all and (max-width: 767px) {
+        & {
+            font-size: 25px;
+        }
+    }
+}

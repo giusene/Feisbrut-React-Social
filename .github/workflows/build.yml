@@ -1,0 +1,47 @@
+# Nome della action
+name: Deploy React App to GH pages
+
+# "evento" che triggera la action
+on:
+  push:
+    branches: [main]
+
+# setup della action
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # versione di node.js da utilizzare
+        node-version: [14]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # creare env file per keys
+      - name: Create env file
+        run: |
+          touch .env
+          echo REACT_APP_EMAIL_SERVICE_ID=${{ secrets.EMAIL_SERVICE_ID }} >> .env
+          echo REACT_APP_EMAIL_USER_ID=${{ secrets.EMAIL_USER_ID }} >> .env
+          echo REACT_APP_EMAIL_ENDPOINT=${{ secrets.EMAIL_ENDPOINT }} >> .env
+          echo REACT_APP_BE_ENDPOINT=${{ secrets.BE_ENDPOINT }} >> .env
+          echo REACT_APP_IMG_UPLOAD_ENDPOINT=${{ secrets.IMG_UPLOAD_ENDPOINT }} >> .env
+          echo REACT_APP_LINK_PREVIEW=${{ secrets.LINK_PREVIEW }} >> .env
+          cat .env
+
+      ## codice custom
+      - run: npm ci
+      - run: npm run build
+
+      ## Presa dal marketplace
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build

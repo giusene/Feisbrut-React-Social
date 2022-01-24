@@ -1,0 +1,9 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    padding: 20px;
+    width: 100%;
+    background-color: $white;
+    border-radius: $componentRadius;
+    margin-bottom: 10px;
+}

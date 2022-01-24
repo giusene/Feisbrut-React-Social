@@ -1,0 +1,66 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    .buttons{
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+        
+        .likes{
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            .likeBtn{
+                font-size: 26px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 38px;
+                cursor: pointer;
+                transition: $btn-trans;
+                margin-right: 5px;
+                &:hover, &.active{
+                    background-color: $red;
+                    color: $white;
+                }
+            }
+        }
+        .comments{
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            .commentBtn{
+                font-size: 26px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 36px;
+                cursor: pointer;
+                transition: $btn-trans;
+                margin-left: 5px;
+                &:hover, &.active{
+                    background-color: $main;
+                    color: $white;
+                }
+            }
+        }
+    }
+    .commentsContainer{
+        margin-top: 0px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: all 0.35s ease;
+        .commentrows{
+            max-height: 500px;
+            overflow: auto;
+        }
+        &.open{
+            margin-top: 10px;
+            max-height: 600px;
+        }
+    }
+}

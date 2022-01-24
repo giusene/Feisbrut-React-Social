@@ -1,0 +1,25 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    max-width: $componentW;
+    margin: 0 auto;
+    .content{
+        margin-top: 10px;
+        background-color: $white;
+        border-radius: $border-radius;
+        padding: 20px;
+        position: relative;
+        .discussion{
+            height: calc(100vh - $headerH - $footerH - $pageHeaderH - $pageHeaderH);
+            overflow: auto;
+            padding: 20px;
+        }
+        .chatInput{
+            background-color: $white;
+            padding: 20px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    }
+}

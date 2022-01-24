@@ -1,0 +1,35 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    padding: 20px;
+    width: 100%;
+    background-color: $white;
+    border-radius: $componentRadius;
+    margin-bottom: 10px;
+    ul{
+        list-style: none;
+        li{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 28px;
+            color: #888;
+            padding-right: 10px;
+            cursor: pointer;
+            span{
+                width: 45px;
+                height: 45px;
+                margin-right: 10px;
+                color: $white;
+                background-color: $main;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 24px;
+                line-height: 52px;
+                display: inline-block;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@import "./../../libs/variables.scss";
+
+.main{
+    display: flex;
+    align-items: center;
+    height: $pageHeaderH;
+    background-color: $white;
+    border-radius: $border-radius;
+    padding: 20px;
+    .who{
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+        .img{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-size: cover;
+            margin-right: 5px;
+        }
+        p{
+            font-size: 14px;
+            font-weight: 700;
+        }
+    }
+}

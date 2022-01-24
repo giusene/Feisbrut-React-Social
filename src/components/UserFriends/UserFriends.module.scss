@@ -1,0 +1,20 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    max-width: $componentW;
+    margin: 0 auto;
+    .header{
+        display: flex;
+        align-items: center;
+        height: 80px;
+        background-color: $white;
+        border-radius: $border-radius;
+        padding: 20px;
+    }
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+}

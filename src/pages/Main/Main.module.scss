@@ -1,0 +1,60 @@
+@import "./../../libs/variables.scss";
+
+.main {
+    background-color: $bg-color;
+    color: $text-color;
+
+    .content {
+        padding-top: $headerH;
+        width: 100%;
+        aside {
+            position: fixed;
+            height: calc(100vh - $headerH);
+            overflow: auto;
+            width: $asideW;
+            padding: 20px 10px;
+            &::-webkit-scrollbar {
+                width: 8px;
+              }
+               
+            &::-webkit-scrollbar-track {
+                background-color: $bg-color;
+              }
+               
+            &::-webkit-scrollbar-thumb {
+                background-color: $bar-color;
+            }
+            &.left{
+                left: 0;
+            }
+            &.right{
+                right: 0;
+            }
+        }
+        main {
+            width: calc(100% - $asideW - $asideW);
+            min-height: calc(100vh - $headerH);
+            margin: 0 auto;
+            padding: 20px;
+        }
+        @media all and (max-width: 1400px) {
+            aside.right{
+                display: none;
+            }
+            main{
+                width: calc(100% - $asideW);
+                margin: 0 0 0 $asideW;
+            }
+          }
+
+        @media all and (max-width: 990px) {
+            aside{
+                display: none;
+            }
+            main{
+                width: 100%;
+                margin: 0 auto;
+            }
+          }
+    }
+}

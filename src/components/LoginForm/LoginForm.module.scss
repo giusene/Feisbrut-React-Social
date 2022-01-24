@@ -1,0 +1,89 @@
+@import "./../../libs/variables.scss";
+
+.main{
+    min-width: 380px;
+    max-width: 400px;
+
+    .formWrapper{
+        form{
+            .inputWrapper{
+                position: relative;
+                height: 60px;
+                margin: 20px 0 0;
+
+                span{
+                    position: absolute;
+                    font-size: 28px;
+                    top: 13px;
+                    left: 18px;
+                    z-index: 2;
+                    height: 60px;
+                    width: 30px;
+                    color: $light-text-color;
+                }
+
+                input {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    width: 100%;
+                    height: 60px;
+                    line-height: 60px;
+                    padding-left: 60px;
+                    display: block;
+                    border: 2px #eee solid;
+                    border-radius: $border-radius;
+                    font-weight: 600;
+                    color: $text-color;
+                }
+            }
+            .forgot{
+                font-weight: 600;
+                font-size: 14px;
+                color: $text-color;
+                margin: 5px 0 10px;
+                cursor: pointer;
+               
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            button {
+                width: 100%;
+                height: 60px;
+                line-height: 60px;
+                margin: 10px 0;
+                color: $white;
+                font-weight: bold;
+                background-color: $btnBg;
+                font-size: 14px;
+                border-radius: $border-radius;
+                border: none;
+                cursor: pointer;
+            }
+        }
+        .register {
+            font-weight: 500;
+            color: $light-text-color;
+            margin: 0 0 10px;
+
+            span{
+                color: $main;
+                font-weight: bold;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .message {
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: red;
+        }
+    }
+
+}

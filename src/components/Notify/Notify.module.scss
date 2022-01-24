@@ -1,0 +1,46 @@
+@import "./../../libs/variables.scss";
+
+.main{
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    transition: $btn-trans;
+    border-radius: $border-radius;
+    transition: $btn-trans;
+    &.active, &:hover{
+    background-color: $bg-color;
+    }
+    input {
+        margin-right: 10px;
+    }
+    .profileImg{
+        position: relative;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-size: cover;
+        .type{
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            font-size: 22px;
+
+        }
+    }
+    .info{
+        margin-left: 20px;
+        .who{
+            font-weight: 700;
+            color: $light-text-color;
+            font-size: 12px;
+            span{
+                color: $text-color;
+            }
+        }
+        .date{
+            color: $light-text-color;
+            font-size: 12px;
+        }
+    }
+}
