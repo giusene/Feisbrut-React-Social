@@ -11,6 +11,7 @@ import { TiZoomOutline, TiMediaPlay } from "react-icons/ti";
 const People = () => {
     const [input, setInput] = useState('');
     const [peopleList, setPeopleList] = useState([]);
+    const [message, setMessage] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
     const user = useSelector(state => state.login.value);
 
@@ -20,12 +21,22 @@ const People = () => {
 
     const searchFunc = (e) => {
         e.preventDefault();
+        
         setSearchQuery(input)
         setInput('');
         httpPOST('/searchbar', {
             author_id: user.id,
             text: input
-        }).then(data => setPeopleList(data))
+        }).then(data => {
+            if (data.response === 'nessun utente trovato') {
+                setMessage('Nessun utente trovato');
+                console.log(data.response)
+            } else {
+                setPeopleList(data);
+                console.log(data)
+                setMessage('');
+            }
+        })
     }
 
     return (
@@ -33,17 +44,18 @@ const People = () => {
             <PagesHeader title={'Cerca Persone'} />
             <div className={styles.contentHeader}>
                 <form onSubmit={(e) => searchFunc(e)}>
-                <div className={styles.inputWrapper}>
-                    <span><TiZoomOutline /></span>
-                    <input value={input} onChange={(e) => setInput(e.target.value)} type='text' id='search' name='search' placeholder='cerca per nome o cognome' required />
-                    <button><TiMediaPlay /></button>
-                </div>
+                    <div className={styles.inputWrapper}>
+                        <span><TiZoomOutline /></span>
+                        <input value={input} onChange={(e) => setInput(e.target.value)} type='text' id='search' name='search' placeholder='cerca per nome o cognome' required />
+                        <button><TiMediaPlay /></button>
+                    </div>
                 </form>
                 {searchQuery &&
-                <p className={styles.query}>risultati per: <span>{searchQuery}</span></p>
+                    <p className={styles.query}>risultati per: <span>{searchQuery}</span></p>
                 }
             </div>
             <div className={styles.content}>
+            {message}
                 {peopleList.map(friend => <UserCard key={friend.id} user={friend} btn />)}
             </div>
         </div>

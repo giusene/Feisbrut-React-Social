@@ -78,5 +78,14 @@
         align-items: stretch;
         gap: 10px;
         margin-top: 10px;
+        .message{
+            width: 100%;
+            background-color: $white;
+            border-radius: $border-radius;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
     }
 }

@@ -14,10 +14,7 @@ const UserCard = ({ user, btn }) => {
     const friendShipREQ = (friendId, userId) => {
 
         httpPOST('/sendfriendrequest', { myId: userId, friendId: friendId })
-            .then(data => {
-                // AGGIORNARE PROFILO
-            })
-
+            .then(data => console.log(data))
     }
 
 

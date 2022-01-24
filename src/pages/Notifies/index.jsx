@@ -58,6 +58,7 @@ const Notifies = () => {
     return (
         <div className={styles.main}>
             <PagesHeader title={'Notifiche'} />
+            {console.log(readItems)}
             <div className={toRemove.length > 0 ? `${styles.contentHeader} ${styles.active}` : styles.contentHeader }>
                 <button onClick={() => sendToRemove()} disabled={toRemove.length > 0 ? false : true}><TiTrash /></button> {
                     toRemove.length > 0 &&
