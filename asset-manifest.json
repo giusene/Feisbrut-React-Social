@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Feisbrut-React-Social/static/css/main.2987a6e9.css",
-    "main.js": "/Feisbrut-React-Social/static/js/main.f9ced92d.js",
+    "main.css": "/Feisbrut-React-Social/static/css/main.f7abce5d.css",
+    "main.js": "/Feisbrut-React-Social/static/js/main.32276b0d.js",
     "static/js/787.022a8c81.chunk.js": "/Feisbrut-React-Social/static/js/787.022a8c81.chunk.js",
     "static/media/facebook.ttf": "/Feisbrut-React-Social/static/media/facebook.7ca587aeb7142d877d0c.ttf",
     "index.html": "/Feisbrut-React-Social/index.html",
-    "main.2987a6e9.css.map": "/Feisbrut-React-Social/static/css/main.2987a6e9.css.map",
-    "main.f9ced92d.js.map": "/Feisbrut-React-Social/static/js/main.f9ced92d.js.map",
+    "main.f7abce5d.css.map": "/Feisbrut-React-Social/static/css/main.f7abce5d.css.map",
+    "main.32276b0d.js.map": "/Feisbrut-React-Social/static/js/main.32276b0d.js.map",
     "787.022a8c81.chunk.js.map": "/Feisbrut-React-Social/static/js/787.022a8c81.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2987a6e9.css",
-    "static/js/main.f9ced92d.js"
+    "static/css/main.f7abce5d.css",
+    "static/js/main.32276b0d.js"
   ]
 }
