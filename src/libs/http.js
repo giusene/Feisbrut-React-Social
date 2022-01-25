@@ -85,10 +85,10 @@ const uploadImg = (data) =>
 const sendEmail = (email, res, name, type) => {
     let template;
     switch (type) {
-        case '/verify/key=':
+        case 'verify/key=':
             template = 'template_kwdpgz7';
             break;
-        case '/passreset/key=':
+        case 'passreset/key=':
             template = 'template_xr8np26';
             break;
         default:

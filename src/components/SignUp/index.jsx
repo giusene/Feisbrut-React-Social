@@ -58,14 +58,14 @@ const SignUp = ({ setForm }) => {
         if (checkpass(password, rPassword)) {
             httpPOST('/users', newUser)
                 .then((res) => {
-                    sendEmail(email, res, name, '/verify/key=');
+                    sendEmail(email, res, name, 'verify/key=');
                     setName('');
                     setSurname('');
                     setEmail('');
                     setPassword('');
                     setRpassword('');
                     setActiveBtn(true);
-                    // setNewUserModal('verify')
+                    setMessage('Controlla la tua mail per completare la registrazione!')
                 })
                 .catch((error) => {
                     console.error('error:', error);
