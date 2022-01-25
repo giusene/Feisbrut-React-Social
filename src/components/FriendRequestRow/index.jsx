@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogin } from './../../libs/loginSlice';
 import { Link } from 'react-router-dom';
-import styles from './FriendRequestRow.module.scss';
 import { httpPOST } from '../../libs/http';
+import styles from './FriendRequestRow.module.scss';
 
 import { TiTick, TiTimes } from "react-icons/ti";
 import { useState } from 'react';
@@ -28,7 +28,6 @@ const FriendRequestRow = ({ friendContent }) => {
                 logged: user.logged,
                 checkSession: user.checkSession
               }).then(data => {
-                  console.log(data);
                   dispatch(setLogin(data))
                 })
         })
@@ -49,7 +48,6 @@ const FriendRequestRow = ({ friendContent }) => {
                     logged: user.logged,
                     checkSession: user.checkSession
                   }).then(data => {
-                      console.log(data);
                       dispatch(setLogin(data))
                     })
             })

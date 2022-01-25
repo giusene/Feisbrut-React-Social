@@ -34,9 +34,14 @@ const Messages = () => {
                 }
             </div>
             <div className={styles.content}>
-                {Object.keys(user.messages).reverse().map((message, index) => (
+                {Object.keys(user.messages).length > 0 ? 
+                <>
+                    {Object.keys(user.messages).reverse().map((message, index) => (
                     <MessagePreview messageId={message} removeList={removeList} key={index} message={user.messages[message]} />
-                ))}
+                ))} 
+                </> :
+                <p>non ci sono messaggi</p>
+                }
             </div>
         </div>
     )

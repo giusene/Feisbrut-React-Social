@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
+import { setLogin } from './../../libs/loginSlice';
 import { capitalizeFirstLetter } from "../../libs/utils";
-import { httpUPDATE, uploadImg } from "../../libs/http";
+import { httpUPDATE, httpPOST, uploadImg } from "../../libs/http";
 import { TiImage, TiStopwatch } from "react-icons/ti";
 
 import styles from './ProfileUpdateForm.module.scss'
 
 const ProfileUpdateFrom = () => {
-    const [disableBtn, setDisableBtn] = useState(true)
+    const [disableBtn, setDisableBtn] = useState(true);
+    const dispatch = useDispatch();
 
     const user = useSelector(state => state.login.value);
 
@@ -61,8 +63,18 @@ const ProfileUpdateFrom = () => {
 
 
     const updateProfile = () => {
-        console.log(form)
-        httpUPDATE(`/users/${user.id}`, form).then(data => console.log(data))
+        setDisableBtn(true);
+        httpUPDATE(`/users/${user.id}`, form).then(data => {
+            httpPOST('/checksession', {
+                userId: user.id,
+                login_time: user.login_time,
+                user_token: user.user_token,
+                logged: user.logged,
+                checkSession: user.checkSession
+              }).then(data => {
+                  dispatch(setLogin(data))
+                })
+        })
     }
 
     return (

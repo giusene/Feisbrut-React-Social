@@ -28,12 +28,11 @@ const People = () => {
             author_id: user.id,
             text: input
         }).then(data => {
-            if (data.response === 'nessun utente trovato') {
+            if (data[0].response) {
                 setMessage('Nessun utente trovato');
-                console.log(data.response)
+                setPeopleList([]);
             } else {
                 setPeopleList(data);
-                console.log(data)
                 setMessage('');
             }
         })
@@ -55,7 +54,7 @@ const People = () => {
                 }
             </div>
             <div className={styles.content}>
-            {message}
+            {message && <p className={styles.message}>{message}</p>}
                 {peopleList.map(friend => <UserCard key={friend.id} user={friend} btn />)}
             </div>
         </div>

@@ -60,8 +60,13 @@ const Profile = () => {
                                     myProfile.friendreq.filter((item) => item.id === profile.id).length > 0 ? 'Richiesta Inviata' :
                                         myProfile.friends.filter((item) => item.id === profile.id).length > 0 ? 'Già amico' : 'Invia Richiesta'
                                 }</button>}
-                        <button className={styles.sendMessage}><TiMail /></button>
-                        {/* <button className={styles.optionBtn}><BsThreeDots /></button> */}
+                        {myProfile.id !== profile.id ?
+                            <button className={styles.sendMessage}><TiMail /></button> :
+                            <button className={styles.optionBtn}>
+                            {/* <BsThreeDots /> */}
+                            modifica
+                            </button>
+                        }
                     </div>
                 </div>
                 <div className={styles.headerNav}>

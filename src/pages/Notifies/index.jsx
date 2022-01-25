@@ -88,10 +88,14 @@ const Notifies = () => {
                     <p>Elimina {toRemove.length} selezionati</p>
                 }
             </div>
-            <ul>
+            <ul>{user.notify.length > 0 ?
+                <>
                 {[...user.notify].reverse().map((notify) =>
                     <Notify key={notify.notify_id} removelist={removeList} notify={notify} />
                 )}
+            </> :
+            <p>non ci sono notifiche</p>
+            }
             </ul>
         </div>
     )

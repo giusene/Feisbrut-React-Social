@@ -20,7 +20,9 @@ const RandomUsers = () => {
     return (
         <div className={styles.main}>
             <h4>Persone che potresti conoscere</h4>
-            {random.map(friend => <UserCard key={friend.id} user={friend} btn />)}
+            {random.length > 0 &&
+                random.map(friend => <UserCard key={friend.id} user={friend} btn />)
+                }
         </div>
 
     )

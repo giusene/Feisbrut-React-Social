@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styles from './Main.module.scss';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -19,18 +19,12 @@ import PostPage from '../PostPage';
 import RandomUsers from '../../components/RandomUsers';
 
 
-import { useDispatch, useSelector } from 'react-redux';
-import { setUserReload } from './../../libs/loginSlice';
 
 
 
 
 const Main = () => {
     const user = useSelector(state => state.login.value);
-    const dispatch = useDispatch();
-    const test = useSelector(state => state.login.userReload);
-    
-    
 
     return (
         <div className={styles.main}>
@@ -46,8 +40,6 @@ const Main = () => {
                     <FriendsList />
                 </aside>
                 <main>
-                <button onClick={() => dispatch(setUserReload())}>reload</button>
-                {console.log(test)}
                     <Routes>
                         <Route path="/" element={<Feeds />} />
                         <Route path="/Feisbrut-React-Social" element={<Feeds />} />
