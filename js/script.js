@@ -25,13 +25,19 @@ const verify = () => {
       textWrapper.textContent = 'Utente Confermato!';
       const button = document.createElement('a');
       button.textContent = "Vai alla pagina di login";
-      button.setAttribute('href', 'giusene.github.io/feisbrut-react-social/');
+      button.setAttribute('href', 'https://giusene.github.io/Feisbrut-React-Social/');
       container.appendChild(button);
 
-      
       console.log(data)
     })
     .catch(err => {
+      const container = document.querySelector('.container');
+      const textWrapper = document.querySelector('.waiting');
+      textWrapper.textContent = "C'è stato un errore!'";
+      const button = document.createElement('a');
+      button.textContent = "Vai alla pagina di login";
+      button.setAttribute('href', 'https://giusene.github.io/Feisbrut-React-Social/');
+      container.appendChild(button);
       console.log(err)
     })
 
