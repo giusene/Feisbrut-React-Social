@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogin } from './../../libs/loginSlice';
 import styles from './Discussion.module.scss';
@@ -16,27 +16,28 @@ const Discussion = () => {
     const user = useSelector(state => state.login.value);
 
 
-    const reload = useCallback(
-        () => {
-            httpPOST('/checksession', {
-                userId: user.id,
-                login_time: user.login_time,
-                user_token: user.user_token,
-                logged: user.logged,
-                checkSession: user.checkSession
-              }).then(data => {
-                  dispatch(setLogin(data))
-                })
-        }, [dispatch, user.id, user.login_time, user.user_token, user.logged, user.checkSession])
+    // const reload = useCallback(
+    //     () => {
+    //         httpPOST('/checksession', {
+    //             userId: user.id,
+    //             login_time: user.login_time,
+    //             user_token: user.user_token,
+    //             logged: user.logged,
+    //             checkSession: user.checkSession
+    //           }).then(data => {
+    //               dispatch(setLogin(data))
+    //             })
+    //     }, [dispatch, user.id, user.login_time, user.user_token, user.logged, user.checkSession])
     
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        httpPOST('/readmessages', {
-            my_id: user.id,
-            friend_id: stateFromLink.state.user.id
-        }).then(data => reload)
-    }, [reload, stateFromLink.state.user.id, user.id])
+    //     httpPOST('/readmessages', {
+    //         my_id: user.id,
+    //         friend_id: stateFromLink.state.user.id
+    //     }).then(data => reload)
+    // }, [reload, stateFromLink.state.user.id, user.id])
+    }, [])
 
     const sendMessage = (e, input, setInput) => {
         e.preventDefault()
