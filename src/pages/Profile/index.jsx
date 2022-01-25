@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { http } from './../../libs/http'
 import styles from './Profile.module.scss';
 import { TiMail, TiPencil, TiGroup, TiImage } from "react-icons/ti";
+import { BsThreeDots } from "react-icons/bs";
 
 
 import Posts from '../../components/Posts';
@@ -44,6 +45,7 @@ const Profile = () => {
     return (
 
         <div className={styles.main}>
+        {console.log(profile.bio)}
             <div className={styles.header}>
                 <div className={styles.cover} style={{ backgroundImage: `url(${profile.bio.cover})` }}></div>
                 <div className={styles.info}>
@@ -63,8 +65,7 @@ const Profile = () => {
                         {myProfile.id !== profile.id ?
                             <button className={styles.sendMessage}><TiMail /></button> :
                             <button className={styles.optionBtn}>
-                            {/* <BsThreeDots /> */}
-                            modifica
+                            <BsThreeDots />
                             </button>
                         }
                     </div>
@@ -80,7 +81,7 @@ const Profile = () => {
             <div className={styles.content}>
                 <div className={styles.left}>
                     <h4>About</h4>
-
+                    <p>{profile.bio.about}</p>
                 </div>
                 <div className={styles.right}>
                     {link === 'post' ?

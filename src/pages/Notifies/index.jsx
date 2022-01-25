@@ -42,7 +42,7 @@ const Notifies = () => {
                 logged: user.logged,
                 checkSession: user.checkSession
             }).then(data => {
-                console.log(data);
+                setToRemove([]);
                 dispatch(setLogin(data))
             })
         })

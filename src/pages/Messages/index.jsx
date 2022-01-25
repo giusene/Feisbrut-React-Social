@@ -1,5 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLogin } from './../../libs/loginSlice';
 import { useEffect, useState } from 'react';
+import { httpPOST } from '../../libs/http';
 import styles from './Messages.module.scss';
 import { TiTrash } from "react-icons/ti";
 
@@ -9,6 +11,7 @@ import MessagePreview from '../../components/MessagePreview';
 const Messages = () => {
     const [toRemove, setToRemove] = useState([])
     const user = useSelector(state => state.login.value);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -21,7 +24,22 @@ const Messages = () => {
     }
 
     const sendToRemove = () => {
-        console.log(toRemove)
+
+        httpPOST('/deletemessages', {
+            userId: user.id,
+            chatId: toRemove
+        }).then(data => {
+            httpPOST('/checksession', {
+                userId: user.id,
+                login_time: user.login_time,
+                user_token: user.user_token,
+                logged: user.logged,
+                checkSession: user.checkSession
+            }).then(data => {
+                setToRemove([]);
+                dispatch(setLogin(data))
+            })
+        })
     }
 
     return (
