@@ -9,11 +9,11 @@ const MainNav = () => {
     const user = useSelector(state => state.login.value);
     const discussions = Object.keys(user.messages);
     let messagesToRead = {}
-    // discussions.forEach(key => {
-    //     user.messages[key].discussion.forEach(notRead => {
-    //         !notRead.read && (messagesToRead = { ...messagesToRead, [key]: '' })
-    //     })
-    // })
+    discussions.forEach(key => {
+        user.messages[key].discussion.forEach(notRead => {
+            !notRead.read && (messagesToRead = { ...messagesToRead, [key]: '' })
+        })
+    })
 
 
 
