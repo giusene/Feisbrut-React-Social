@@ -6,4 +6,10 @@
     margin: 10px auto;
     background-color: $white;
     border-radius: $componentRadius;
+    display: flex;
+    flex-wrap: wrap;
+    img {
+        margin: 10px;
+        max-width: 150px;
+    }
 }

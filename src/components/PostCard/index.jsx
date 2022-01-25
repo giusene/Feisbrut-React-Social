@@ -1,12 +1,18 @@
+import { useSelector } from 'react-redux';
 import styles from './PostCard.module.scss';
 import { formatDistance } from 'date-fns';
 import { it } from 'date-fns/locale';
 import PostReactions from '../PostReactions';
+import { TiTrash } from "react-icons/ti";
 import { BsThreeDots } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import UrlPreview from '../UrlPreview';
+import { useState } from 'react';
 
 const PostCard = ({ postContent, reloader, setReloader }) => {
+    const [open, setOpen] = useState(false)
+    const user = useSelector(state => state.login.value);
+
     return (
         <article className={styles.main}>
             <div className={styles.header}>
@@ -22,9 +28,19 @@ const PostCard = ({ postContent, reloader, setReloader }) => {
                     </div>
 
                 </div>
-                <div className={styles.btn}>
-                    <BsThreeDots />
-                </div>
+                {postContent.authorId === user.id &&
+                    <div className={styles.btn} onClick={() => setOpen(!open)}>
+                        <BsThreeDots />
+                        {open &&
+                            <div className={styles.dropDown}>
+                                <ul>
+                                    <li><Link to={'/profile'} state={user.id}><span><BsThreeDots /></span>Modifica</Link></li>
+                                    <li><Link to='/profileupdate'><span><TiTrash /></span>Elimina</Link></li>
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                }
             </div>
             <div className={styles.content}>
                 <p className={styles.postText}>{postContent.text}</p>
