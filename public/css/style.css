@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Facebook";
-    src: url("./../../src/libs/fonts/facebook.ttf") format("truetype");
+    src: url("./facebook.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
