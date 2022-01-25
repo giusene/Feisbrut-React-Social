@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Feisbrut-React-Social/static/css/main.0a91f9ed.css",
-    "main.js": "/Feisbrut-React-Social/static/js/main.476247f9.js",
+    "main.js": "/Feisbrut-React-Social/static/js/main.26bbba1e.js",
     "static/js/787.022a8c81.chunk.js": "/Feisbrut-React-Social/static/js/787.022a8c81.chunk.js",
     "static/media/facebook.ttf": "/Feisbrut-React-Social/static/media/facebook.7ca587aeb7142d877d0c.ttf",
     "index.html": "/Feisbrut-React-Social/index.html",
     "main.0a91f9ed.css.map": "/Feisbrut-React-Social/static/css/main.0a91f9ed.css.map",
-    "main.476247f9.js.map": "/Feisbrut-React-Social/static/js/main.476247f9.js.map",
+    "main.26bbba1e.js.map": "/Feisbrut-React-Social/static/js/main.26bbba1e.js.map",
     "787.022a8c81.chunk.js.map": "/Feisbrut-React-Social/static/js/787.022a8c81.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0a91f9ed.css",
-    "static/js/main.476247f9.js"
+    "static/js/main.26bbba1e.js"
   ]
 }
