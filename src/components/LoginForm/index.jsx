@@ -59,7 +59,6 @@ const LoginForm = ({setForm}) => {
                     <button>Accedi</button>
                 </form>
                 <p className={styles.register}>Non hai un account? <span onClick={()=> setForm('registration')} >Registrati!</span></p>
-                <p>Inserisci codice di verifica</p>
             </div>
         </div>
     )

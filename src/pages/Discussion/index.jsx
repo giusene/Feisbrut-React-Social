@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLogin } from './../../libs/loginSlice';
 import styles from './Discussion.module.scss';
 
 import PagesHeader from '../../components/PagesHeader';
@@ -10,7 +11,8 @@ import { httpPOST } from '../../libs/http';
 
 const Discussion = () => {
     const stateFromLink = useLocation();
-
+    const dispatch = useDispatch();
+    
     const user = useSelector(state => state.login.value);
 
     useEffect(() => {
@@ -24,8 +26,16 @@ const Discussion = () => {
             friend_id: stateFromLink.state.user.id,
             text: input
         }).then(data => {
-            console.log(data);
             setInput('');
+            httpPOST('/checksession', {
+                userId: user.id,
+                login_time: user.login_time,
+                user_token: user.user_token,
+                logged: user.logged,
+                checkSession: user.checkSession
+              }).then(data => {
+                  dispatch(setLogin(data))
+                })
         })
     }
 
