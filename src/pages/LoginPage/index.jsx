@@ -6,7 +6,6 @@ const LoginPage = () => {
     return (
         <div className={styles.main}>
             <div className={styles.left}>
-            {console.log(window.location.href)}
                 <LoginLeftSide />
             </div>
             <div className={styles.right}>

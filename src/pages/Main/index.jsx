@@ -37,7 +37,7 @@ const Main = () => {
             <Header />
             <div className={styles.content}>
                 <aside className={styles.left}>
-                {user.friendrec.lenght > 0 &&
+                {user.friendrec.length > 0 &&
                     <FriendRequest />
                 }
                     <RandomUsers />

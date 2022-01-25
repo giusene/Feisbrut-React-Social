@@ -27,7 +27,10 @@ const FriendRequestRow = ({ friendContent }) => {
                 user_token: user.user_token,
                 logged: user.logged,
                 checkSession: user.checkSession
-              }).then(data => dispatch(setLogin(data)))
+              }).then(data => {
+                  console.log(data);
+                  dispatch(setLogin(data))
+                })
         })
     }
 
@@ -39,7 +42,16 @@ const FriendRequestRow = ({ friendContent }) => {
             confirmed: true
         })
             .then(data => {
-                // AGGIORNARE PROFILO
+                httpPOST('/checksession', {
+                    userId: user.id,
+                    login_time: user.login_time,
+                    user_token: user.user_token,
+                    logged: user.logged,
+                    checkSession: user.checkSession
+                  }).then(data => {
+                      console.log(data);
+                      dispatch(setLogin(data))
+                    })
             })
     }
 

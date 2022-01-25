@@ -6,6 +6,7 @@ import styles from './Discussion.module.scss';
 import PagesHeader from '../../components/PagesHeader';
 import ChatRow from '../../components/ChatRow';
 import CommentForm from '../../components/CommentForm';
+import { httpPOST } from '../../libs/http';
 
 const Discussion = () => {
     const stateFromLink = useLocation();
@@ -16,8 +17,16 @@ const Discussion = () => {
         window.scrollTo(0, 0)
     }, [])
 
-    const sendMessage = () => {
-
+    const sendMessage = (e, input, setInput) => {
+        e.preventDefault()
+        httpPOST('/instantmessage', {
+            my_id: user.id,
+            friend_id: stateFromLink.state.user.id,
+            text: input
+        }).then(data => {
+            console.log(data);
+            setInput('');
+        })
     }
 
     return (
