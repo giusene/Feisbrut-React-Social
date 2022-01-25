@@ -1,9 +1,11 @@
 import styles from './UserPhoto.module.scss';
 
-const UserPhoto = () => {
+const UserPhoto = ({allPhotos}) => {
+    console.log(allPhotos)
+
     return(
         <div className={styles.main}>
-            Ancora non disponibile
+           
         </div>
     )
 }

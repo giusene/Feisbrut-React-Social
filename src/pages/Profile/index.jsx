@@ -45,7 +45,6 @@ const Profile = () => {
     return (
 
         <div className={styles.main}>
-        {console.log(profile.bio)}
             <div className={styles.header}>
                 <div className={styles.cover} style={{ backgroundImage: `url(${profile.bio.cover})` }}></div>
                 <div className={styles.info}>
@@ -100,7 +99,7 @@ const Profile = () => {
                             :
                             <>
                                 <div className={styles.postHeader}><span><TiImage /></span>Foto di {profile.name}</div>
-                                <UserPhoto />
+                                <UserPhoto allPhotos={profile.bio.allPhotos} />
                             </>}
                 </div>
             </div>

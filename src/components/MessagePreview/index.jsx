@@ -1,9 +1,11 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
 import { it } from 'date-fns/locale';
 import styles from './MessagePreview.module.scss';
 
-const MessagePreview = ({ messageId,  message, removeList }) => {
+const MessagePreview = ({ messageId, message, removeList }) => {
+    const user = useSelector(state => state.login.value);
 
     return (
         <div className={styles.main}>
@@ -15,10 +17,13 @@ const MessagePreview = ({ messageId,  message, removeList }) => {
                     {message.user.name} {message.user.surname}
                 </div>
                 <div className={styles.preview}>
-                    {message.discussion[0].read === false && <span></span>}{message.discussion[0].text}
+                    {message.discussion[message.discussion.length - 1].read === false && <span></span>}
+                    {message.discussion[message.discussion.length -1].author === user.id ? 'Tu: ' :
+                    `${message.user.name}: `}
+                    {message.discussion[message.discussion.length - 1].text}
                 </div>
                 <div className={styles.date}>
-                    {formatDistance(new Date(message.discussion[0].date), new Date(), { addSuffix: true, locale: it })}
+                    {formatDistance(new Date(message.discussion[message.discussion.length - 1].date), new Date(), { addSuffix: true, locale: it })}
                 </div>
             </Link>
         </div>

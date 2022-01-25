@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setLogin } from './../../libs/loginSlice';
 import styles from './Login.module.scss';
 import { Link } from 'react-router-dom';
-import { TiArrowSortedDown, TiSpanner, TiExport } from "react-icons/ti";
+import { TiArrowSortedDown, TiSpanner, TiExport, TiUser } from "react-icons/ti";
 import { useState } from 'react';
 
 
@@ -23,7 +23,7 @@ const Login = () => {
             {open &&
                 <div className={styles.dropDown}>
                     <ul>
-                    
+                        <li><Link to={'/profile'} state={user.id}><span><TiUser /></span>Profilo</Link></li>
                         <li><Link to='/profileupdate'><span><TiSpanner /></span>Impostazioni</Link></li>
                         <li onClick={() => dispatch(setLogin({ logged: false }))}><Link to='/'><span><TiExport /></span>Logout</Link></li>
                     </ul>
