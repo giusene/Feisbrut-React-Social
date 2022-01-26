@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const verify = () => {
   const id = window.location.href.split('=')[1];
   console.log('verify', id);
-  httpUPDATE(`/confirmation`, { id: id })
+  httpPOST(`/confirmation`, { id: id })
     .then(data => {
       const container = document.querySelector('.container');
       const textWrapper = document.querySelector('.waiting');
-      textWrapper.textContent = 'Utente Confermato!';
+      textWrapper.textContent = `${data.response}`;
       const button = document.createElement('a');
       button.textContent = "Vai alla pagina di login";
       button.setAttribute('href', 'https://giusene.github.io/Feisbrut-React-Social/');
