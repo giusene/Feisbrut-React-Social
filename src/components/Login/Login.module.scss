@@ -24,16 +24,16 @@
         font-size: 16px;
         margin: 5px 0 0 5px;
     }
-    @media all and (max-width: 767px) {
-        .profileName, .profileBtn  {
-            display: none;
-        }
-        .profileImg {
-            width: 40px;
-            height: 40px;
-            margin: 0 0 0 5px;
-        }
-    }
+    // @media all and (max-width: 767px) {
+    //     .profileName, .profileBtn  {
+    //         display: none;
+    //     }
+    //     .profileImg {
+    //         width: 40px;
+    //         height: 40px;
+    //         margin: 0 0 0 5px;
+    //     }
+    // }
     .dropDown{
         position: absolute;
         padding: 10px 0;

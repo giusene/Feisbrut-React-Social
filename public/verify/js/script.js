@@ -24,7 +24,7 @@ const verify = () => {
       const textWrapper = document.querySelector('.waiting');
       textWrapper.textContent = `${data.response}`;
       const button = document.createElement('a');
-      button.textContent = "QUETO è IL SECONDO LIVELLO - Vai alla pagina di login";
+      button.textContent = "Vai alla pagina di login";
       button.setAttribute('href', 'https://giusene.github.io/Feisbrut-React-Social/');
       container.appendChild(button);
     })

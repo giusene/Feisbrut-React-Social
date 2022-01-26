@@ -30,14 +30,39 @@
     }
 
     @media all and (max-width: 767px) {
-        .left, .center, .right{
+        .left, .right{
             width: auto;
+        }
+        .center {
+            display: none;
         }
         .left {
             flex-grow: 1;
         }
         &{
             justify-content: flex-start;
+            box-shadow: none;
+        }
+      }
+}
+
+.mainMobile {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    min-height: $headerH;
+    padding: 0 20px;
+    background-color: $white;
+    box-shadow: $shadow;
+    top: $headerH;
+    display: none;
+    
+    
+    @media all and (max-width: 767px) {
+        &{
+           display: flex;
+           align-items: center;
+            justify-content:center;
         }
       }
 }

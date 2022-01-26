@@ -56,5 +56,10 @@
                 margin: 0 auto;
             }
           }
+    @media all and (max-width: 767px) {
+            &{
+                padding-top: calc($headerH + $headerH) ;
+            }
+          }
     }
 }
