@@ -59,3 +59,13 @@ const httpUPDATE = (resource, data) =>
     },
     body: JSON.stringify(data),
   }).then(response => response.json());
+
+
+  const httpPOST = (resource, data) =>
+    fetch(BASE_URL + resource, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(data),
+    }).then(response => response.json());
