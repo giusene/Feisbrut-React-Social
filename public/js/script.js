@@ -24,7 +24,7 @@ const verify = () => {
       const textWrapper = document.querySelector('.waiting');
       textWrapper.textContent = `${data.response}`;
       const button = document.createElement('a');
-      button.textContent = "Vai alla pagina di login";
+      button.textContent = "QUETO è IL PRIMO LIVELLO - Vai alla pagina di login";
       button.setAttribute('href', 'https://giusene.github.io/Feisbrut-React-Social/');
       container.appendChild(button);
     })
@@ -59,3 +59,13 @@ const httpUPDATE = (resource, data) =>
     },
     body: JSON.stringify(data),
   }).then(response => response.json());
+
+
+  const httpPOST = (resource, data) =>
+    fetch(BASE_URL + resource, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(data),
+    }).then(response => response.json());
