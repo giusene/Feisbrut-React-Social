@@ -18,17 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
 const verify = () => {
   const id = window.location.href.split('=')[1];
   console.log('verify', id);
-  httpUPDATE(`/users/${id}`, { confirmed: true })
+  httpPOST(`/confirmation`, { id: id })
     .then(data => {
       const container = document.querySelector('.container');
       const textWrapper = document.querySelector('.waiting');
-      textWrapper.textContent = 'Utente Confermato!';
+      textWrapper.textContent = `${data.response}`;
       const button = document.createElement('a');
-      button.textContent = "Vai alla pagina di login";
+      button.textContent = "QUETO è IL SECONDO LIVELLO - Vai alla pagina di login";
       button.setAttribute('href', 'https://giusene.github.io/Feisbrut-React-Social/');
       container.appendChild(button);
-
-      console.log(data)
     })
     .catch(err => {
       const container = document.querySelector('.container');
