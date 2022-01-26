@@ -8,6 +8,9 @@
     a{
         display: flex;
         align-items: center;
+        &.linkName{
+            flex-grow: 1;
+        }
         
         .userImg{
             width: 35px;

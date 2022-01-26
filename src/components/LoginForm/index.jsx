@@ -20,8 +20,8 @@ const LoginForm = ({setForm}) => {
     const loginFunc = (e) => {
         e.preventDefault();
         httpPOST('/login', input).then(data => {
-            if (data.response === 'Utente non trovato') {
-                setMessage('Email o Password errati')
+            if (data.response) {
+                setMessage(data.response)
             } else {
                 dispatch(setLogin({ ...data[0], logged: true }))
             }

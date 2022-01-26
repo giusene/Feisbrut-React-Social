@@ -57,15 +57,16 @@ const SignUp = ({ setForm }) => {
         setActiveBtn(false);
         if (checkpass(password, rPassword)) {
             httpPOST('/users', newUser)
-                .then((res) => {
-                    sendEmail(email, res, name, 'verify/key=');
+                .then((res) => { 
+                    console.log(res)
+                    sendEmail(email, res.id, name, 'verify/key=');
                     setName('');
                     setSurname('');
                     setEmail('');
                     setPassword('');
                     setRpassword('');
                     setActiveBtn(true);
-                    setMessage('Controlla la tua mail per completare la registrazione!')
+                    setMessage(res.response)
                 })
                 .catch((error) => {
                     console.error('error:', error);
@@ -110,7 +111,7 @@ const SignUp = ({ setForm }) => {
                             Accetto i termini
                         </label>
                     </p>
-                    <p>{message}</p>
+                    <p className={styles.message}>{message}</p>
                     <button disabled={!activeBtn ? true : false}>Registrati</button>
                 </form>
                 <p className={styles.register}>Hai già un account? <span onClick={() => setForm('login')} >Accedi!</span></p>

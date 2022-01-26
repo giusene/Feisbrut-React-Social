@@ -59,7 +59,7 @@ const FriendRequestRow = ({ friendContent }) => {
             <Link to={'/profile'} state={friendContent.id}>
                 <div className={styles.userImg} style={{ backgroundImage: `url(${friendContent.photo})` }}></div>
             </Link>
-            <Link to={'/profile'} state={friendContent.id}>
+            <Link className={styles.linkName} to={'/profile'} state={friendContent.id}>
                 <div className={styles.userName}>{friendContent.name} {friendContent.surname}</div>
             </Link>
             <button disabled={disabled} onClick={() => accept(user.id, friendContent.id)}><TiTick /></button>

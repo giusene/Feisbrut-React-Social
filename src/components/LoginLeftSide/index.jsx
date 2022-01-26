@@ -5,7 +5,7 @@ import styles from './LoginLeftSide.module.scss';
 const LoginLeftSide = () => {
     return (
         <div className={styles.main}>
-            <p>Lorem Ipsum</p>
+            <p>Accedi o Registrati per entrare a far parte del fantastico mondo di Feisbrut.</p>
         </div>
     )
 }

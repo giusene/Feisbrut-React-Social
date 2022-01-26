@@ -34,6 +34,7 @@ const ProfileUpdateFrom = () => {
 
     useEffect(() => {
         setForm({
+            _id: user._id,
             name: capitalizeFirstLetter(name),
             surname: capitalizeFirstLetter(surname),
             email: email.toLocaleLowerCase(),
@@ -48,7 +49,7 @@ const ProfileUpdateFrom = () => {
             },
         })
 
-        name === user.name &&
+            name === user.name &&
             surname === user.surname &&
             alias === user.bio.alias &&
             job === user.bio.job &&
@@ -59,7 +60,7 @@ const ProfileUpdateFrom = () => {
             cover === user.bio.cover ?
             setDisableBtn(true) : setDisableBtn(false);
 
-    }, [name, surname, email, photo, alias, job, sex, about, cover, allPhotos, user.bio.about, user.bio.alias, user.bio.cover, user.bio.job, user.bio.sex, user.email, user.name, user.photo, user.surname])
+    }, [name, user._id, surname, email, photo, alias, job, sex, about, cover, allPhotos, user.bio.about, user.bio.alias, user.bio.cover, user.bio.job, user.bio.sex, user.email, user.name, user.photo, user.surname])
 
 
     const updateProfile = () => {

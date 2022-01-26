@@ -15,6 +15,12 @@
 
     .left {
         background-color: lightblue;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .right{
+        background-color: $bg-color;
     }
 
     @media all and (max-width: 990px) {

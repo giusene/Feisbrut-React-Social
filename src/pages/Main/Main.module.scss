@@ -35,7 +35,7 @@
             width: calc(100% - $asideW - $asideW);
             min-height: calc(100vh - $headerH);
             margin: 0 auto;
-            padding: 20px;
+            padding: 20px 0;
         }
         @media all and (max-width: 1400px) {
             aside.right{
