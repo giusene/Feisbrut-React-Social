@@ -1,10 +1,12 @@
 import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLogin } from './../../libs/loginSlice';
 import { useState, useEffect } from 'react';
-import { http } from './../../libs/http'
+import { http, httpPOST } from './../../libs/http'
 import styles from './Profile.module.scss';
-import { TiMail, TiPencil, TiGroup, TiImage } from "react-icons/ti";
+import { TiMail, TiPencil, TiGroup, TiImage, TiUserAdd, TiTick } from "react-icons/ti";
 import { BsThreeDots } from "react-icons/bs";
+
 
 
 import Posts from '../../components/Posts';
@@ -15,7 +17,9 @@ import UserFriends from '../../components/UserFriends';
 
 const Profile = () => {
     const myProfile = useSelector(state => state.login.value);
+    const [disabled, setDisabled] = useState(false);
     const [link, setLink] = useState('post');
+    const dispatch = useDispatch();
 
     const stateFromLink = useLocation();
     const [profile, setProfile] = useState({
@@ -38,8 +42,20 @@ const Profile = () => {
         http('/users/' + stateFromLink.state).then(data => setProfile(data))
     }, [stateFromLink.state])
 
-    const friendShipREQ = (friendId, myId) => {
-
+    const friendShipREQ = (friendId, userId) => {
+        setDisabled(true);
+        httpPOST('/sendfriendrequest', { myId: userId, friendId: friendId })
+        .then(data => {
+            httpPOST('/checksession', {
+                userId: myProfile.id,
+                login_time: myProfile.login_time,
+                user_token: myProfile.user_token,
+                logged: myProfile.logged,
+                checkSession: myProfile.checkSession
+              }).then(data => {
+                  dispatch(setLogin(data))
+                })
+        })
     }
 
     return (
@@ -55,11 +71,9 @@ const Profile = () => {
                     </div>
                     <div className={styles.btnWrapper}>
                         {myProfile.id !== profile.id &&
-                            <button className={styles.sendRequest} onClick={() => friendShipREQ(profile.id, myProfile.id)} disabled={
-                                myProfile.friendreq.filter((item) => item.id === profile.id).length > 0 ? true :
-                                    myProfile.friends.filter((item) => item.id === profile.id).length > 0 ? true : false}>{
-                                    myProfile.friendreq.filter((item) => item.id === profile.id).length > 0 ? 'Richiesta Inviata' :
-                                        myProfile.friends.filter((item) => item.id === profile.id).length > 0 ? 'Già amico' : 'Invia Richiesta'
+                            <button className={styles.sendRequest} onClick={() => friendShipREQ(profile.id, myProfile.id)}  disabled={disabled}>{
+                                    myProfile.friendreq.filter((item) => item.id === profile.id).length > 0 ? <TiUserAdd /> :
+                                        myProfile.friends.filter((item) => item.id === profile.id).length > 0 ? <TiTick /> : <TiUserAdd />
                                 }</button>}
                         {myProfile.id !== profile.id ?
                             <button className={styles.sendMessage}><TiMail /></button> :

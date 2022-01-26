@@ -1,22 +1,32 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLogin } from './../../libs/loginSlice';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './UserCard.module.scss';
-import { TiUserAdd } from "react-icons/ti";
-import { TiTick } from "react-icons/ti";
-import { TiMail } from "react-icons/ti";
+import { TiUserAdd, TiTick, TiMail } from "react-icons/ti";
 import { httpPOST } from '../../libs/http';
 
 
 
 const UserCard = ({ user, btn, status }) => {
     const profile = useSelector(state => state.login.value);
-    const [disabled, setDisabled] = useState(false)
+    const [disabled, setDisabled] = useState(false);
+    const dispatch = useDispatch();
 
     const friendShipREQ = (friendId, userId) => {
         setDisabled(true);
         httpPOST('/sendfriendrequest', { myId: userId, friendId: friendId })
-            .then(data => console.log(data))
+        .then(data => {
+            httpPOST('/checksession', {
+                userId: profile.id,
+                login_time: profile.login_time,
+                user_token: profile.user_token,
+                logged: profile.logged,
+                checkSession: profile.checkSession
+              }).then(data => {
+                  dispatch(setLogin(data))
+                })
+        })
     }
 
     useEffect(() => {
@@ -41,7 +51,7 @@ const UserCard = ({ user, btn, status }) => {
             {/* <div className={styles.userJob}><p>{user.bio.job}</p></div> */}
             <div className={styles.buttons}>
                 {btn && user.id !== profile.id &&
-                    <button onClick={() => friendShipREQ(user.id, profile.id)} disabled={disabled}>{
+                    <button onClick={() => friendShipREQ(user.id, profile.id)}  disabled={disabled}>{
                             profile.friendreq.filter((item) => item.id === user.id).length > 0 ? <TiUserAdd /> :
                                 profile.friends.filter((item) => item.id === user.id).length > 0 ? <TiTick /> : <TiUserAdd />
                         }</button>}

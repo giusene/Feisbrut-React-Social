@@ -7,7 +7,7 @@
         margin-top: 10px;
         background-color: $white;
         border-radius: $border-radius;
-        padding: 20px;
+        padding: 20px 0;
         position: relative;
         .discussion{
             height: calc(100vh - $headerH - $footerH - $pageHeaderH - $pageHeaderH);
