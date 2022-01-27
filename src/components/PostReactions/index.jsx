@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { likeFunc } from './../../libs/http';
 import styles from './PostReactions.module.scss';
@@ -12,8 +12,6 @@ import { httpCOMMENT } from './../../libs/http';
 const PostReactions = ({ postContent, reloader, setReloader }) => {
     const user = useSelector(state => state.login.value);
     const [showMessage, setShowMessage] = useState(false);
-
-    const commentWrapper = useRef()
 
     const handlerLike = (likeType) => {
         if (likeType === 'like') {
@@ -63,7 +61,7 @@ const PostReactions = ({ postContent, reloader, setReloader }) => {
                 </div>
             </div>
             <div className={(!showMessage ? styles.commentsContainer : `${styles.commentsContainer} ${styles.open}`)}>
-                        <div ref={commentWrapper} className={styles.commentrows}>
+                        <div className={styles.commentrows}>
                         {postContent.comments.map((comment, index) => <CommentRow key={index} comment={comment}/>)}
                         </div>
                         <CommentForm sendFunc={hadlerComment}/>
