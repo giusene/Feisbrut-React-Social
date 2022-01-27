@@ -25,7 +25,10 @@ const Login = () => {
                     <ul>
                         <li><Link to={'/Feisbrut-React-Social/profile'} state={user.id}><span><TiUser /></span>Profilo</Link></li>
                         <li><Link to='/Feisbrut-React-Social/profileupdate'><span><TiSpanner /></span>Impostazioni</Link></li>
-                        <li onClick={() => dispatch(setLogin({ logged: false }))}><Link to='/Feisbrut-React-Social/'><span><TiExport /></span>Logout</Link></li>
+                        <li onClick={() => {
+                            window.localStorage.setItem('feisbrut', JSON.stringify({ logged: false }))
+                            dispatch(setLogin({ logged: false }))
+                            }}><Link to='/Feisbrut-React-Social/'><span><TiExport /></span>Logout</Link></li>
                     </ul>
                 </div>
             }

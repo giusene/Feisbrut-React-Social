@@ -27,9 +27,18 @@ const FriendRequestRow = ({ friendContent }) => {
                 user_token: user.user_token,
                 logged: user.logged,
                 checkSession: user.checkSession
-              }).then(data => {
-                  dispatch(setLogin(data))
-                })
+            }).then(data => {
+                dispatch(setLogin(data));
+
+                window.localStorage.setItem('feisbrut', JSON.stringify({
+                    userId: data.id,
+                    login_time: data.login_time,
+                    user_token: data.user_token,
+                    checkSession: data.checkSession,
+                    logged: data.logged
+                }))
+
+            })
         })
     }
 
@@ -47,9 +56,18 @@ const FriendRequestRow = ({ friendContent }) => {
                     user_token: user.user_token,
                     logged: user.logged,
                     checkSession: user.checkSession
-                  }).then(data => {
-                      dispatch(setLogin(data))
-                    })
+                }).then(data => {
+                    dispatch(setLogin(data));
+
+                    window.localStorage.setItem('feisbrut', JSON.stringify({ 
+                        userId: data.id,
+                        login_time: data.login_time,
+                        user_token: data.user_token,
+                        checkSession: data.checkSession,
+                        logged: data.logged 
+                    }))
+                    
+                })
             })
     }
 

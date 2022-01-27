@@ -44,6 +44,14 @@ const Notifies = () => {
             }).then(data => {
                 setToRemove([]);
                 dispatch(setLogin(data))
+
+                window.localStorage.setItem('feisbrut', JSON.stringify({ 
+                    userId: data.id,
+                    login_time: data.login_time,
+                    user_token: data.user_token,
+                    checkSession: data.checkSession,
+                    logged: data.logged 
+                }))
             })
         })
     }
@@ -62,8 +70,15 @@ const Notifies = () => {
                     logged: user.logged,
                     checkSession: user.checkSession
                 }).then(data => {
-                    console.log(data);
                     dispatch(setLogin(data))
+
+                    window.localStorage.setItem('feisbrut', JSON.stringify({ 
+                        userId: data.id,
+                        login_time: data.login_time,
+                        user_token: data.user_token,
+                        checkSession: data.checkSession,
+                        logged: data.logged 
+                    }))
                 })
             })
         }, [user.id, readItems, dispatch, user.checkSession, user.logged, user.login_time, user.user_token])
