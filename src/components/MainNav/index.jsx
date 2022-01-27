@@ -20,11 +20,11 @@ const MainNav = () => {
     return (
         <nav>
             <ul>
-                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/'}><li><TiHomeOutline /></li></NavLink>
-                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/friends'}><li><CountBadge toCount={user.friendrec} /><TiGroup /></li></NavLink>
-                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/messages'}><li><CountBadge toCount={Object.keys(messagesToRead)} /><TiMessage /></li></NavLink>
-                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/notifies'}><li><CountBadge toCount={user.notify.filter(item => !item.read)} /><TiFlash /></li></NavLink>
-                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/people'}><li><TiZoom /></li></NavLink>
+                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/Feisbrut-React-Social'}><li><TiHomeOutline /></li></NavLink>
+                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/Feisbrut-React-Social/friends'}><li><CountBadge toCount={user.friendrec} /><TiGroup /></li></NavLink>
+                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/Feisbrut-React-Social/messages'}><li><CountBadge toCount={Object.keys(messagesToRead)} /><TiMessage /></li></NavLink>
+                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/Feisbrut-React-Social/notifies'}><li><CountBadge toCount={user.notify.filter(item => !item.read)} /><TiFlash /></li></NavLink>
+                <NavLink className={({ isActive }) => isActive ? styles.active : ''} to={'/Feisbrut-React-Social/people'}><li><TiZoom /></li></NavLink>
             </ul>
         </nav>
     )

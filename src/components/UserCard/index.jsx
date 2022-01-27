@@ -36,7 +36,7 @@ const UserCard = ({ user, btn, status }) => {
 
     return (
         <div className={styles.main}>
-            <Link to={'/profile'} state={user.id}><div className={styles.userImg} style={{ backgroundImage: `url(${user.photo})` }}>
+            <Link to={'/Feisbrut-React-Social/profile'} state={user.id}><div className={styles.userImg} style={{ backgroundImage: `url(${user.photo})` }}>
             { status &&
                 <> {
                 (Date.now() / 60000) - (user.login_time / 60000) <= 1 ? <div className={styles.green}></div> :
@@ -47,7 +47,7 @@ const UserCard = ({ user, btn, status }) => {
             }
                 
             </div></Link>
-            <div className={styles.userName}><Link to={'/profile'} state={user.id}><h3>{user.name} {user.surname}</h3></Link></div>
+            <div className={styles.userName}><Link to={'/Feisbrut-React-Social/profile'} state={user.id}><h3>{user.name} {user.surname}</h3></Link></div>
             {/* <div className={styles.userJob}><p>{user.bio.job}</p></div> */}
             <div className={styles.buttons}>
                 {btn && user.id !== profile.id &&
@@ -55,7 +55,7 @@ const UserCard = ({ user, btn, status }) => {
                             profile.friendreq.filter((item) => item.id === user.id).length > 0 ? <TiUserAdd /> :
                                 profile.friends.filter((item) => item.id === user.id).length > 0 ? <TiTick /> : <TiUserAdd />
                         }</button>}
-                {user.id !== profile.id && <Link to={'/discussion'} state={{ user: user }}><button><TiMail /></button></Link>}
+                {user.id !== profile.id && <Link to={'/Feisbrut-React-Social/discussion'} state={{ user: user }}><button><TiMail /></button></Link>}
             </div>
         </div>
     )

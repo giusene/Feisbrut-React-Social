@@ -41,7 +41,6 @@ const Main = () => {
                 </aside>
                 <main>
                     <Routes>
-                        <Route path="/" element={<Feeds />} />
                         <Route path="/Feisbrut-React-Social" element={<Feeds />} />
                         <Route path="/Feisbrut-React-Social/friends" element={<Friends />} />
                         <Route path="/Feisbrut-React-Social/profile" element={<Profile />} />

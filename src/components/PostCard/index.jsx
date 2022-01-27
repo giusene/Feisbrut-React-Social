@@ -17,11 +17,11 @@ const PostCard = ({ postContent, reloader, setReloader }) => {
         <article className={styles.main}>
             <div className={styles.header}>
                 <div className={styles.user}>
-                    <Link to={'/profile'} state={postContent.authorId}>
+                    <Link to={'/Feisbrut-React-Social/profile'} state={postContent.authorId}>
                         <div className={styles.profileImg} style={{ backgroundImage: `url(${postContent.authorPhoto})` }}></div>
                     </Link>
                     <div className={styles.postInfo}>
-                        <Link to={'/profile'} state={postContent.authorId}><p className={styles.author}>{postContent.authorName} {postContent.authorSurname}</p></Link>
+                        <Link to={'/Feisbrut-React-Social/profile'} state={postContent.authorId}><p className={styles.author}>{postContent.authorName} {postContent.authorSurname}</p></Link>
                         <p className={styles.date}>
                             {formatDistance(new Date(postContent.date), new Date(), { addSuffix: true, locale: it })}
                         </p>
@@ -34,8 +34,8 @@ const PostCard = ({ postContent, reloader, setReloader }) => {
                         {open &&
                             <div className={styles.dropDown}>
                                 <ul>
-                                    <li><Link to={'/profile'} state={user.id}><span><BsThreeDots /></span>Modifica</Link></li>
-                                    <li><Link to='/profileupdate'><span><TiTrash /></span>Elimina</Link></li>
+                                    <li><Link to={'/Feisbrut-React-Social/profile'} state={user.id}><span><BsThreeDots /></span>Modifica</Link></li>
+                                    <li><Link to='/Feisbrut-React-Social/profileupdate'><span><TiTrash /></span>Elimina</Link></li>
                                 </ul>
                             </div>
                         }

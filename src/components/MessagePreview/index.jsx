@@ -10,7 +10,7 @@ const MessagePreview = ({ messageId, message, removeList }) => {
     return (
         <div className={styles.main}>
             <input type="checkbox" onChange={(e) => removeList(e, messageId)} />
-            <Link to={'/discussion'} state={message}>
+            <Link to={'/Feisbrut-React-Social/discussion'} state={message}>
                 <div className={styles.status}></div>
                 <div className={styles.profileImg} style={{ backgroundImage: `url(${message.user.photo})` }}></div>
                 <div className={styles.name}>
