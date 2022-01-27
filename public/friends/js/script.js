@@ -55,15 +55,7 @@ const reset = () => {
 }
 
 const other = () => {
-  console.log('other');
-  const container = document.querySelector('.container');
-  const textWrapper = document.querySelector('.waiting');
-  textWrapper.textContent = "Questa è la 404 classica!'";
-  const button = document.createElement('a');
-  button.textContent = "Vai alla pagina di login";
-  button.setAttribute('href', 'https://giusene.github.io/Feisbrut-React-Social/');
-  container.appendChild(button);
-
+  window.location.href = "https://giusene.github.io/Feisbrut-React-Social/";
 }
 
 

@@ -41,7 +41,7 @@ const PostCard = ({ postContent, reloader, setReloader }) => {
                         {open &&
                             <div className={styles.dropDown}>
                                 <ul>
-                                    <li><span><BsThreeDots /></span>Modifica</li>
+                                    {/* <li><span><BsThreeDots /></span>Modifica</li> */}
                                     <li onClick={() => handlerDelete()}><span><TiTrash /></span>Elimina</li>
                                 </ul> 
                             </div>

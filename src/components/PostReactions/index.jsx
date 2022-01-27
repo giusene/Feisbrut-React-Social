@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { likeFunc } from './../../libs/http';
 import styles from './PostReactions.module.scss';
@@ -61,7 +61,7 @@ const PostReactions = ({ postContent, reloader, setReloader }) => {
                 </div>
             </div>
             <div className={(!showMessage ? styles.commentsContainer : `${styles.commentsContainer} ${styles.open}`)}>
-                        <div className={styles.commentrows}>
+                        <div ref='commentWrapper' className={styles.commentrows}>
                         {postContent.comments.map((comment, index) => <CommentRow key={index} comment={comment}/>)}
                         </div>
                         <CommentForm sendFunc={hadlerComment}/>
