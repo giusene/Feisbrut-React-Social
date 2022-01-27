@@ -15,11 +15,11 @@ const Notify = ({ notify, removelist }) => {
             </div>
             <div className={styles.info}>
                 <div className={styles.who}>
-                    <Link to={'/profile'} state={notify.user[0].id}><span>{notify.user[0].name} {notify.user[0].surname}</span></Link>
+                    <Link to={'/Feisbrut-React-Social/profile'} state={notify.user[0].id}><span>{notify.user[0].name} {notify.user[0].surname}</span></Link>
                     {notify.type === 'like' ?
-                        <> ha messo mi piace al tuo <Link to={'/post'} state={notify.postID}><span>Post!!!</span></Link></> :
+                        <> ha messo mi piace al tuo <Link to={'/Feisbrut-React-Social/post'} state={notify.postID}><span>Post!!!</span></Link></> :
                         notify.type === 'comment' ?
-                            <> ha commentato il tuo <Link to={'/post'} state={notify.postID}><span>Post!!!</span></Link></> :
+                            <> ha commentato il tuo <Link to={'/Feisbrut-React-Social/post'} state={notify.postID}><span>Post!!!</span></Link></> :
                             notify.type === 'friendConfirmed' ?
                                 <> ha accettato la richiesta d'amiciza</> :
                                 <> ti ha inviato una richiesta d'amicizia</>

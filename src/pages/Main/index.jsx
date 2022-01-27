@@ -41,7 +41,8 @@ const Main = () => {
                 </aside>
                 <main>
                     <Routes>
-                        <Route path="/Feisbrut-React-Social" element={<Feeds />} />
+                        {/* <Route path="/" element={<Feeds />} /> */}
+                        <Route path="/Feisbrut-React-Social/" element={<Feeds />} />
                         <Route path="/Feisbrut-React-Social/friends" element={<Friends />} />
                         <Route path="/Feisbrut-React-Social/profile" element={<Profile />} />
                         <Route path="/Feisbrut-React-Social/profileupdate" element={<ProfileUpdate />} />
@@ -50,7 +51,7 @@ const Main = () => {
                         <Route path="/Feisbrut-React-Social/post" element={<PostPage />} />
                         <Route path="/Feisbrut-React-Social/notifies" element={<Notifies />} />
                         <Route path="/Feisbrut-React-Social/people" element={<People />} />
-                        <Route path="*" element={<h1>tutto</h1>} />
+                        {/* <Route path="*" element={<h1>tutto</h1>} /> */}
                     </Routes>
                 </main>
             </div>

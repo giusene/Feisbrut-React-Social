@@ -40,6 +40,8 @@
                     color: $light-text-color;
                     font-size: 12px;
                 }
+
+                
             }
             .btnWrapper{
                 margin-top: 20px;
@@ -96,11 +98,18 @@
                     justify-content: center;
                     .profileImg{
                         margin: 0;
+                        width: 180px;
+                        height: 180px;
                     }
                     .profileInfo{
                         margin: 0;
                         text-align: center;
                     }
+                }
+              }
+              @media all and (max-width: 575px) {
+                &{
+                    margin-top: -150px;
                 }
               }
         }
@@ -173,7 +182,7 @@
         }
         @media all and (max-width: 575px) {
             &{
-                flex-direction: column;
+                flex-direction: column-reverse;
                 .left{
                     width: 100%;
                 }

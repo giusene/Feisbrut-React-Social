@@ -10,7 +10,7 @@ const SinglePost = () => {
     const stateFromLink = useLocation();
 
     useEffect(() => {
-        http(`/posts/${stateFromLink.state}`).then(data => setPost([data]));
+        http(`/Feisbrut-React-Social/posts/${stateFromLink.state}`).then(data => setPost([data]));
       }, [reloader, stateFromLink.state])
 
     return (

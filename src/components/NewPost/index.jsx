@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setLogin } from './../../libs/loginSlice';
 import { httpPOST, uploadImg, linkPreview, httpUPDATE } from '../../libs/http';
 import styles from './NewPost.module.scss';
 import { TiPencil, TiImage, TiArrowForward } from "react-icons/ti";
@@ -24,6 +25,8 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
     const [uploadInput, setUploadInput] = useState(postState.photo);
     const [messageInput, setMessageInput] = useState(postState.text);
     const [formPostObject, setFormPostObject] = useState(postState);
+
+    const dispatch = useDispatch();
 
     const [btnDisabled, setBtnDisabled] = useState(false);
 
@@ -55,7 +58,21 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
                             // DA TESTARE
                             httpUPDATE(`/users/${user.id}`, {
                                 _id: user.db_id,
+                                name: user.name,
+                                surname: user.surname,
+                                email: user.email,
+                                photo: user.photo,
                                 bio: {...user.bio, allPhotos: [...user.bio.allPhotos, {type: 'caricamenti', url: result.data.display_url}]}
+                            }).then(data => {
+                                httpPOST('/checksession', {
+                                    userId: user.id,
+                                    login_time: user.login_time,
+                                    user_token: user.user_token,
+                                    logged: user.logged,
+                                    checkSession: user.checkSession
+                                  }).then(data => {
+                                      dispatch(setLogin(data))
+                                    })
                             })
                             setFormPostObject(postState);
                             setUploadInput({ name: 'Carica Foto' });

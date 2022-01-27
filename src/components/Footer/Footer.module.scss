@@ -3,5 +3,21 @@
 .main {
     width: 100%;
     height: $footerH;
-    background-color: red;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .copy{
+        font-size: 12px;
+        text-align: center;
+    }
+    .credit{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 300px;
+        font-size: 12px;
+        font-weight: 700;
+    }
 }

@@ -17,8 +17,8 @@ const ProfileUpdateFrom = () => {
     const [surname, setSurname] = useState(user.surname);
     const [alias, setAlias] = useState(user.bio.alias);
     const [job, setJob] = useState(user.bio.job);
-    const [email, setEmail] = useState(user.email);
-    const [sex, setSex] = useState(user.bio.sex);
+    // const [email, setEmail] = useState(user.email);
+    // const [sex, setSex] = useState(user.bio.sex);
     const [about, setAbout] = useState(user.bio.about);
 
     const [photo, setPhoto] = useState(user.photo);
@@ -37,12 +37,12 @@ const ProfileUpdateFrom = () => {
             _id: user.db_id,
             name: capitalizeFirstLetter(name),
             surname: capitalizeFirstLetter(surname),
-            email: email.toLocaleLowerCase(),
+            email: user.email,
             photo: photo,
             bio: {
                 alias: alias,
                 job: job,
-                sex: sex,
+                sex: user.bio.sex,
                 about: about,
                 cover: cover,
                 allPhotos: allPhotos
@@ -53,14 +53,14 @@ const ProfileUpdateFrom = () => {
             surname === user.surname &&
             alias === user.bio.alias &&
             job === user.bio.job &&
-            email === user.email &&
-            sex === user.bio.sex &&
+            // email === user.email &&
+            // sex === user.bio.sex &&
             about === user.bio.about &&
             photo === user.photo &&
             cover === user.bio.cover ?
             setDisableBtn(true) : setDisableBtn(false);
 
-    }, [name, user.db_id, surname, email, photo, alias, job, sex, about, cover, allPhotos, user.bio.about, user.bio.alias, user.bio.cover, user.bio.job, user.bio.sex, user.email, user.name, user.photo, user.surname])
+    }, [name, user.db_id, surname, photo, alias, job, about, cover, allPhotos, user.bio.about, user.bio.alias, user.bio.cover, user.bio.job, user.bio.sex, user.email, user.name, user.photo, user.surname])
 
 
     const updateProfile = () => {
@@ -146,7 +146,7 @@ const ProfileUpdateFrom = () => {
                     <input onChange={(e) => setJob(e.target.value)} value={job} type='text' name='job' id='job' />
                 </div>
             </div>
-            <div className={styles.row}>
+            {/* <div className={styles.row}>
                 <div className={styles.box}>
                     <label htmlFor='email'>Email</label>
                     <input onChange={(e) => setEmail(e.target.value)} value={email} type='email' name='email' id='email' required />
@@ -155,7 +155,7 @@ const ProfileUpdateFrom = () => {
                     <label htmlFor='sex'>Sesso</label>
                     <input onChange={(e) => setSex(e.target.value)} value={sex} type='text' name='sex' id='sex' />
                 </div>
-            </div>
+            </div> */}
             <div className={styles.row}>
                 <div className={styles.box}>
                     <label htmlFor='about'>About</label>
