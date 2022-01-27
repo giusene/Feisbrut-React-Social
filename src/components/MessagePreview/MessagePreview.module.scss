@@ -60,6 +60,11 @@
             color: $light-text-color;
             margin-left: 10px;
             text-align: center;
+            @media all and (max-width: 575px) {
+                &{
+                    display: none
+                }
+              }
         }
     }
 }
