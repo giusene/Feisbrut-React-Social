@@ -31,7 +31,7 @@ const Header = () => {
                 }))
             })
 
-        }, 1000);
+        }, 2000);
 
         return () => clearInterval(updateUser);
 
