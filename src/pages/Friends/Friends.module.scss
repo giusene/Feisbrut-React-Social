@@ -6,9 +6,10 @@
     .content{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        // justify-content: space-between;
         align-items: stretch;
         margin-top: 10px;
+        gap: 10px;
         .nothing{
             flex-grow: 1;
             background-color: $white;

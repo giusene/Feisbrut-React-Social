@@ -49,7 +49,7 @@ const FriendRequestRow = ({ friendContent }) => {
         httpPOST('/confirmfriendrequest', {
             myId: myId,
             friendId: friendId,
-            confirmed: true
+            confirmed: false
         })
             // .then(data => {
             //     httpPOST('/checksession', {
