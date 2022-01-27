@@ -31,7 +31,7 @@ const SignUp = ({ setForm }) => {
             name: capitalizeFirstLetter(name),
             surname: capitalizeFirstLetter(surname),
             email: name.toLocaleLowerCase() + '@' + name.toLocaleLowerCase(),
-            password: 1234,
+            password: '1234',
             photo: 'https://i.ibb.co/rZ1HGTB/user.png',
             friends: [],
             bio: {

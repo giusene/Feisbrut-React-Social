@@ -17,13 +17,15 @@ const LoginForm = ({setForm}) => {
         password: ''
     });
 
+
     const loginFunc = (e) => {
         e.preventDefault();
         httpPOST('/login', input).then(data => {
             if (data.response) {
                 setMessage(data.response)
             } else {
-                dispatch(setLogin({ ...data[0], logged: true }))
+                dispatch(setLogin({ ...data[0], logged: true }));
+                window.localStorage.setItem('feisbrut', JSON.stringify({ ...data[0], logged: true }));
             }
         }).catch(e => setMessage('Errore di connessione'))
     }
