@@ -44,21 +44,37 @@ const verify = () => {
 const reset = () => {
   const id = window.location.href.split('=')[1];
   console.log('reset', id);
+  const container = document.querySelector('.container');
+  const textWrapper = document.querySelector('.waiting');
+  textWrapper.textContent = "Questa è la pagina di reset password!'";
+  const button = document.createElement('a');
+  button.textContent = "Vai alla pagina di login";
+  button.setAttribute('href', 'https://giusene.github.io/Feisbrut-React-Social/');
+  container.appendChild(button);
+
 }
 
 const other = () => {
   console.log('other');
+  const container = document.querySelector('.container');
+  const textWrapper = document.querySelector('.waiting');
+  textWrapper.textContent = "Questa è la 404 classica!'";
+  const button = document.createElement('a');
+  button.textContent = "Vai alla pagina di login";
+  button.setAttribute('href', 'https://giusene.github.io/Feisbrut-React-Social/');
+  container.appendChild(button);
+
 }
 
 
-const httpUPDATE = (resource, data) =>
-  fetch('https://feisbrut.herokuapp.com' + resource, {
-    method: "PATCH",
-    headers: {
-      "Content-type": "application/json"
-    },
-    body: JSON.stringify(data),
-  }).then(response => response.json());
+// const httpUPDATE = (resource, data) =>
+//   fetch('https://feisbrut.herokuapp.com' + resource, {
+//     method: "PATCH",
+//     headers: {
+//       "Content-type": "application/json"
+//     },
+//     body: JSON.stringify(data),
+//   }).then(response => response.json());
 
 
 const httpPOST = (resource, data) =>
