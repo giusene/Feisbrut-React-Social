@@ -86,6 +86,10 @@
                 border: 2px #eee solid;
                 padding-left: 10px;
                 border-radius: $border-radius;
+                font-family: inherit;
+                resize: none;
+                line-height: 24px;
+                font-weight: 500;
             }
         }
         button{
@@ -104,5 +108,11 @@
                 opacity: 0.4;
             }
         }
+
+        @media all and (max-width: 575px) {
+            &{
+                flex-direction: column;
+            }
+          }
     }
 }

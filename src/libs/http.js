@@ -65,6 +65,15 @@ const httpUPDATE = (resource, data) =>
         body: JSON.stringify(data),
     }).then(response => response.json());
 
+const httpDELETE = (resource, data) =>
+    fetch(BASE_URL + resource, {
+        method: "DELETE",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(data),
+    }).then(response => response.json());
+
 
 const dataConvert = (data) => {
     let formData = new FormData();
@@ -100,7 +109,7 @@ const sendEmail = (email, res, name, type) => {
         user_id: process.env.REACT_APP_EMAIL_USER_ID,
         template_params: {
             'destinatario': email,
-            'message': `${window.location.href+type+res}`,
+            'message': `${window.location.href + type + res}`,
             'to_name': name
         }
     }
@@ -117,4 +126,4 @@ const linkPreview = (resource) => fetch(`http://api.linkpreview.net/?key=${LINK_
     .then(response => response.json());
 
 
-export { http, httpPOST, httpUPDATE, httpCOMMENT, httpFRIENDS, getPost, uploadImg, likeFunc, linkPreview, sendEmail }
+export { http, httpPOST, httpUPDATE, httpDELETE, httpCOMMENT, httpFRIENDS, getPost, uploadImg, likeFunc, linkPreview, sendEmail }

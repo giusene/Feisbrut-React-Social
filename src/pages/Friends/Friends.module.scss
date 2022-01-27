@@ -9,5 +9,11 @@
         justify-content: space-between;
         align-items: stretch;
         margin-top: 10px;
+        .nothing{
+            flex-grow: 1;
+            background-color: $white;
+            border-radius: $border-radius;
+            padding: 20px;
+        }
     }
 }

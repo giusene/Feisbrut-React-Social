@@ -8,10 +8,17 @@ import { BsThreeDots } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import UrlPreview from '../UrlPreview';
 import { useState } from 'react';
+import { httpDELETE } from '../../libs/http';
 
 const PostCard = ({ postContent, reloader, setReloader }) => {
     const [open, setOpen] = useState(false)
     const user = useSelector(state => state.login.value);
+
+    const handlerDelete = () => {
+        httpDELETE(`/posts/${postContent.id}`, {
+            db_id: user.db_id
+        })
+    }
 
     return (
         <article className={styles.main}>
@@ -34,9 +41,9 @@ const PostCard = ({ postContent, reloader, setReloader }) => {
                         {open &&
                             <div className={styles.dropDown}>
                                 <ul>
-                                    <li><Link to={'/Feisbrut-React-Social/profile'} state={user.id}><span><BsThreeDots /></span>Modifica</Link></li>
-                                    <li><Link to='/Feisbrut-React-Social/profileupdate'><span><TiTrash /></span>Elimina</Link></li>
-                                </ul>
+                                    <li><span><BsThreeDots /></span>Modifica</li>
+                                    <li onClick={() => handlerDelete()}><span><TiTrash /></span>Elimina</li>
+                                </ul> 
                             </div>
                         }
                     </div>

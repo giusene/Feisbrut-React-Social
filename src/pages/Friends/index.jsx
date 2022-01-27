@@ -16,10 +16,14 @@ const Friends = () => {
         <div className={styles.main}>
             <PagesHeader title={'Amici'} />
             <div className={styles.content}>
+           
                 {user.friendrec.length > 0 &&
                     <FriendRequest />
                 }
-                {user.friends.map(friend => <UserCard key={friend.id} user={friend} status />)}
+                { user.friends.length > 0 ?
+                    user.friends.map(friend => <UserCard key={friend.id} user={friend} status /> )
+                    : <p className={styles.nothing}>non ci sono notifiche</p>
+                    }
             </div>
         </div>
     )
