@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogin } from './../../libs/loginSlice';
 import { httpPOST, uploadImg, linkPreview, httpUPDATE } from '../../libs/http';
@@ -41,7 +41,7 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
             if (uploadInput.name === 'Carica Foto') {
                 httpPOST('/posts', {...formPostObject, url: link}).then(() => {
                     setMessageInput('');
-                    setReloader(reloader ? false : true);
+                    setReloader(!reloader);
                     setBtnDisabled(false);
                     setLink({
                         url: '',
@@ -84,7 +84,7 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
                             })
                             setFormPostObject(postState);
                             setUploadInput({ name: 'Carica Foto' });
-                            setReloader(reloader ? false : true);
+                            setReloader(!reloader);
                             setBtnDisabled(false);
                             setLink({
                                 url: '',
@@ -101,6 +101,11 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
             }
         }
     }
+
+    const postReloader = useCallback(
+        () => {
+            setReloader(!reloader);
+        }, [setReloader, reloader])
 
     useEffect(() => {
         if (link.find === false) {
@@ -130,7 +135,14 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
             likes: [],
             comments: [],
         })
-    }, [messageInput, link.find, user.id, user.db_id])
+
+        const postTimer = setInterval(() => {
+            postReloader()
+        }, 30000);
+
+        return () => clearInterval(postTimer);
+
+    }, [messageInput, link.find, user.id, user.db_id, postReloader])
 
     return (
         <div className={styles.main}>

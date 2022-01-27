@@ -17,6 +17,7 @@ const Posts = ({multi, single}) => {
         })
 
         getPost(multi ? [...myFriends, user.id] : [single]).then(data => setPosts(data));
+
     }, [reloader, user.friends, multi, single, user.id])
 
 

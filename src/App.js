@@ -27,6 +27,7 @@ function App() {
   useEffect(() => {
     if (window.localStorage.getItem('feisbrut')) {
       const user = JSON.parse(window.localStorage.getItem('feisbrut'));
+      
       httpPOST('/checksession', {
         userId: user.userId,
         login_time: user.login_time,
@@ -41,7 +42,7 @@ function App() {
   }, [setUser])
 
   const login = useSelector(state => state.login.value);
-  
+
   return (
     <>
       <Routes>

@@ -122,7 +122,7 @@ const sendEmail = (email, res, name, type) => {
     }).then((response) => response)
 }
 
-const linkPreview = (resource) => fetch(`http://api.linkpreview.net/?key=${LINK_PREVIEW_API}&q=` + resource)
+const linkPreview = (resource) => fetch(`https://api.linkpreview.net/?key=${LINK_PREVIEW_API}&q=` + resource)
     .then(response => response.json());
 
 

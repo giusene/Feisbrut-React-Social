@@ -70,7 +70,7 @@ const Discussion = () => {
                     login_time: data.login_time,
                     user_token: data.user_token,
                     checkSession: data.checkSession,
-                    logged: data.logged 
+                    logged: user.logged 
                 }))
                 })
         })
