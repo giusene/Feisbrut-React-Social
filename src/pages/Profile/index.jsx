@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { setLogin } from './../../libs/loginSlice';
+import { useSelector } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { setLogin } from './../../libs/loginSlice';
 import { useState, useEffect } from 'react';
 import { http, httpPOST } from './../../libs/http'
 import styles from './Profile.module.scss';
@@ -19,7 +20,7 @@ const Profile = () => {
     const myProfile = useSelector(state => state.login.value);
     const [disabled, setDisabled] = useState(false);
     const [link, setLink] = useState('post');
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const stateFromLink = useLocation();
     const [profile, setProfile] = useState({
@@ -45,25 +46,25 @@ const Profile = () => {
     const friendShipREQ = (friendId, userId) => {
         setDisabled(true);
         httpPOST('/sendfriendrequest', { myId: userId, friendId: friendId })
-        .then(data => {
-            httpPOST('/checksession', {
-                userId: myProfile.id,
-                login_time: myProfile.login_time,
-                user_token: myProfile.user_token,
-                logged: myProfile.logged,
-                checkSession: myProfile.checkSession
-              }).then(data => {
-                  dispatch(setLogin(data))
+        // .then(data => {
+        //     httpPOST('/checksession', {
+        //         userId: myProfile.id,
+        //         login_time: myProfile.login_time,
+        //         user_token: myProfile.user_token,
+        //         logged: myProfile.logged,
+        //         checkSession: myProfile.checkSession
+        //       }).then(data => {
+        //           dispatch(setLogin(data))
 
-                  window.localStorage.setItem('feisbrut', JSON.stringify({ 
-                    userId: data.id,
-                    login_time: data.login_time,
-                    user_token: data.user_token,
-                    checkSession: data.checkSession,
-                    logged: data.logged 
-                }))
-                })
-        })
+        //           window.localStorage.setItem('feisbrut', JSON.stringify({ 
+        //             userId: data.id,
+        //             login_time: data.login_time,
+        //             user_token: data.user_token,
+        //             checkSession: data.checkSession,
+        //             logged: data.logged 
+        //         }))
+        //         })
+        // })
     }
 
     return (

@@ -1,5 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { setLogin } from './../../libs/loginSlice';
+import { useSelector } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { setLogin } from './../../libs/loginSlice';
 import { Link } from 'react-router-dom';
 import { httpPOST } from '../../libs/http';
 import styles from './FriendRequestRow.module.scss';
@@ -10,7 +11,7 @@ import { useState } from 'react';
 
 const FriendRequestRow = ({ friendContent }) => {
     const user = useSelector(state => state.login.value);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const [disabled, setDisabled] = useState(false)
 
@@ -20,26 +21,27 @@ const FriendRequestRow = ({ friendContent }) => {
             myId: myId,
             friendId: friendId,
             confirmed: true
-        }).then(data => {
-            httpPOST('/checksession', {
-                userId: user.id,
-                login_time: user.login_time,
-                user_token: user.user_token,
-                logged: user.logged,
-                checkSession: user.checkSession
-            }).then(data => {
-                dispatch(setLogin(data));
-
-                window.localStorage.setItem('feisbrut', JSON.stringify({
-                    userId: data.id,
-                    login_time: data.login_time,
-                    user_token: data.user_token,
-                    checkSession: data.checkSession,
-                    logged: data.logged
-                }))
-
-            })
         })
+        // .then(data => {
+        //     httpPOST('/checksession', {
+        //         userId: user.id,
+        //         login_time: user.login_time,
+        //         user_token: user.user_token,
+        //         logged: user.logged,
+        //         checkSession: user.checkSession
+        //     }).then(data => {
+        //         dispatch(setLogin(data));
+
+        //         window.localStorage.setItem('feisbrut', JSON.stringify({
+        //             userId: data.id,
+        //             login_time: data.login_time,
+        //             user_token: data.user_token,
+        //             checkSession: data.checkSession,
+        //             logged: data.logged
+        //         }))
+
+        //     })
+        // })
     }
 
     const decline = (myId, friendId) => {
@@ -49,26 +51,26 @@ const FriendRequestRow = ({ friendContent }) => {
             friendId: friendId,
             confirmed: true
         })
-            .then(data => {
-                httpPOST('/checksession', {
-                    userId: user.id,
-                    login_time: user.login_time,
-                    user_token: user.user_token,
-                    logged: user.logged,
-                    checkSession: user.checkSession
-                }).then(data => {
-                    dispatch(setLogin(data));
+            // .then(data => {
+            //     httpPOST('/checksession', {
+            //         userId: user.id,
+            //         login_time: user.login_time,
+            //         user_token: user.user_token,
+            //         logged: user.logged,
+            //         checkSession: user.checkSession
+            //     }).then(data => {
+            //         dispatch(setLogin(data));
 
-                    window.localStorage.setItem('feisbrut', JSON.stringify({ 
-                        userId: data.id,
-                        login_time: data.login_time,
-                        user_token: data.user_token,
-                        checkSession: data.checkSession,
-                        logged: data.logged 
-                    }))
-                    
-                })
-            })
+            //         window.localStorage.setItem('feisbrut', JSON.stringify({ 
+            //             userId: data.id,
+            //             login_time: data.login_time,
+            //             user_token: data.user_token,
+            //             checkSession: data.checkSession,
+            //             logged: data.logged 
+            //         }))
+
+            //     })
+            // })
     }
 
 

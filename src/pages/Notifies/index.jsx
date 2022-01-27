@@ -1,7 +1,8 @@
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setLogin } from './../../libs/loginSlice';
+import { useSelector } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { setLogin } from './../../libs/loginSlice';
 import Notify from '../../components/Notify';
 import PagesHeader from '../../components/PagesHeader';
 import styles from './Notifies.module.scss';
@@ -11,7 +12,7 @@ import { TiTrash } from "react-icons/ti";
 const Notifies = () => {
     const [toRemove, setToRemove] = useState([]);
     const user = useSelector(state => state.login.value);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     let readItems = useMemo(() =>
         [], [])
@@ -34,26 +35,27 @@ const Notifies = () => {
             type: "delete",
             userId: user.id,
             notification_id: toRemove
-        }).then(data => {
-            httpPOST('/checksession', {
-                userId: user.id,
-                login_time: user.login_time,
-                user_token: user.user_token,
-                logged: user.logged,
-                checkSession: user.checkSession
-            }).then(data => {
-                setToRemove([]);
-                dispatch(setLogin(data))
-
-                window.localStorage.setItem('feisbrut', JSON.stringify({ 
-                    userId: data.id,
-                    login_time: data.login_time,
-                    user_token: data.user_token,
-                    checkSession: data.checkSession,
-                    logged: data.logged 
-                }))
-            })
         })
+        // .then(data => {
+        //     httpPOST('/checksession', {
+        //         userId: user.id,
+        //         login_time: user.login_time,
+        //         user_token: user.user_token,
+        //         logged: user.logged,
+        //         checkSession: user.checkSession
+        //     }).then(data => {
+        //         setToRemove([]);
+        //         dispatch(setLogin(data))
+
+        //         window.localStorage.setItem('feisbrut', JSON.stringify({ 
+        //             userId: data.id,
+        //             login_time: data.login_time,
+        //             user_token: data.user_token,
+        //             checkSession: data.checkSession,
+        //             logged: data.logged 
+        //         }))
+        //     })
+        // })
     }
 
     const sendToRead = useCallback(
@@ -62,26 +64,27 @@ const Notifies = () => {
                 type: "patch",
                 userId: user.id,
                 notification_id: readItems
-            }).then(data => {
-                httpPOST('/checksession', {
-                    userId: user.id,
-                    login_time: user.login_time,
-                    user_token: user.user_token,
-                    logged: user.logged,
-                    checkSession: user.checkSession
-                }).then(data => {
-                    dispatch(setLogin(data))
-
-                    window.localStorage.setItem('feisbrut', JSON.stringify({ 
-                        userId: data.id,
-                        login_time: data.login_time,
-                        user_token: data.user_token,
-                        checkSession: data.checkSession,
-                        logged: data.logged 
-                    }))
-                })
             })
-        }, [user.id, readItems, dispatch, user.checkSession, user.logged, user.login_time, user.user_token])
+            // .then(data => {
+            //     httpPOST('/checksession', {
+            //         userId: user.id,
+            //         login_time: user.login_time,
+            //         user_token: user.user_token,
+            //         logged: user.logged,
+            //         checkSession: user.checkSession
+            //     }).then(data => {
+            //         dispatch(setLogin(data))
+
+            //         window.localStorage.setItem('feisbrut', JSON.stringify({ 
+            //             userId: data.id,
+            //             login_time: data.login_time,
+            //             user_token: data.user_token,
+            //             checkSession: data.checkSession,
+            //             logged: data.logged 
+            //         }))
+            //     })
+            // })
+        }, [user.id, readItems])
 
     const removeList = (e, item) => {
         e.target.checked ?

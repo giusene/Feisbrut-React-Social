@@ -1,5 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { setLogin } from './../../libs/loginSlice';
+import { useSelector } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { setLogin } from './../../libs/loginSlice';
 import { useEffect, useState } from 'react';
 import { httpPOST } from '../../libs/http';
 import styles from './Messages.module.scss';
@@ -11,7 +12,7 @@ import MessagePreview from '../../components/MessagePreview';
 const Messages = () => {
     const [toRemove, setToRemove] = useState([])
     const user = useSelector(state => state.login.value);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -28,27 +29,28 @@ const Messages = () => {
         httpPOST('/deletemessages', {
             userId: user.id,
             chatId: toRemove
-        }).then(data => {
-            httpPOST('/checksession', {
-                userId: user.id,
-                login_time: user.login_time,
-                user_token: user.user_token,
-                logged: user.logged,
-                checkSession: user.checkSession
-            }).then(data => {
-                setToRemove([]);
-                dispatch(setLogin(data))
-
-                window.localStorage.setItem('feisbrut', JSON.stringify({ 
-                    userId: data.id,
-                    login_time: data.login_time,
-                    user_token: data.user_token,
-                    checkSession: data.checkSession,
-                    logged: data.logged 
-                }))
-
-            })
         })
+        // .then(data => {
+        //     httpPOST('/checksession', {
+        //         userId: user.id,
+        //         login_time: user.login_time,
+        //         user_token: user.user_token,
+        //         logged: user.logged,
+        //         checkSession: user.checkSession
+        //     }).then(data => {
+        //         setToRemove([]);
+        //         dispatch(setLogin(data))
+
+        //         window.localStorage.setItem('feisbrut', JSON.stringify({ 
+        //             userId: data.id,
+        //             login_time: data.login_time,
+        //             user_token: data.user_token,
+        //             checkSession: data.checkSession,
+        //             logged: data.logged 
+        //         }))
+
+        //     })
+        // })
     }
 
     return (

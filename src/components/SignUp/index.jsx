@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import styles from './SignUp.module.scss';
-import { capitalizeFirstLetter } from './../../libs/utils';
-import { httpPOST } from '../../libs/http';
+import { capitalizeFirstLetter, checkpass } from './../../libs/utils';
+import { sendEmail, httpPOST } from '../../libs/http';
 
-import { TiUserOutline, TiUser } from "react-icons/ti";
+import { TiMail, TiKeyOutline, TiUserOutline, TiUser } from "react-icons/ti";
 
 
 
@@ -20,7 +20,9 @@ const SignUp = ({ setForm }) => {
 
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
-    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [rPassword, setRpassword] = useState('');
 
     const [activeBtn, setActiveBtn] = useState(true)
 
@@ -30,15 +32,15 @@ const SignUp = ({ setForm }) => {
         setNewUser({
             name: capitalizeFirstLetter(name),
             surname: capitalizeFirstLetter(surname),
-            email: name.toLocaleLowerCase() + '@' + name.toLocaleLowerCase(),
-            password: '1234',
+            email: email.toLocaleLowerCase(),
+            password: password,
             photo: 'https://i.ibb.co/rZ1HGTB/user.png',
             friends: [],
             bio: {
                 alias: '', 
                 job: '',
                 sex: '',
-                about: 'È universalmente riconosciuto che un lettore che osserva il layout di una pagina viene distratto dal contenuto testuale se questo è leggibile. Lo scopo dell’utilizzo del Lorem Ipsum è che offre una normale distribuzione delle lettere (al contrario di quanto avviene se si utilizzano brevi frasi ripetute, ad esempio “testo qui”), apparendo come un normale blocco di testo leggibile. Molti software di impaginazione e di web design utilizzano Lorem Ipsum come testo modello. Molte versioni del testo sono state prodotte negli anni, a volte casualmente, a volte di proposito (ad esempio inserendo passaggi ironici).',
+                about: '',
                 cover: 'https://i.ibb.co/GH24KJP/default-Cover.jpg',
                 allPhotos: []
             },
@@ -46,17 +48,23 @@ const SignUp = ({ setForm }) => {
             friendrec: [],
             notify: [],
             messages: {},
-            confirmed: true,
+            confirmed: false,
         })
-    }, [name, surname])
+    }, [name, surname, email, password])
 
     const registration = (e) => {
         e.preventDefault();
         setActiveBtn(false);
-        httpPOST('/users', newUser)
+        if (checkpass(password, rPassword)) {
+            httpPOST('/users', newUser)
                 .then((res) => { 
+                    console.log(res)
+                    sendEmail(email, res.id, name, 'verify/key=');
                     setName('');
                     setSurname('');
+                    setEmail('');
+                    setPassword('');
+                    setRpassword('');
                     setActiveBtn(true);
                     setMessage(res.response)
                 })
@@ -64,6 +72,10 @@ const SignUp = ({ setForm }) => {
                     console.error('error:', error);
                     ;
                 });
+        } else {
+            setActiveBtn(true);
+            setMessage('le password non coincidono!!!')
+        }
     }
 
     return (
@@ -81,9 +93,24 @@ const SignUp = ({ setForm }) => {
                         <span><TiUser /></span>
                         <input value={surname} onChange={(e) => { setSurname(e.target.value); setMessage('') }} type='text' id='surname' name='surname' placeholder='cognome' required />
                     </div>
-                    
-                    
-            
+                    <div className={styles.inputWrapper}>
+                        <span><TiMail /></span>
+                        <input value={email} onChange={(e) => { setEmail(e.target.value); setMessage('') }} type='email' id='email' name='email' placeholder='e-mail' required />
+                    </div>
+                    <div className={styles.inputWrapper}>
+                        <span><TiKeyOutline /></span>
+                        <input value={password} onChange={(e) => { setPassword(e.target.value); setMessage('') }} type='password' id='password' name='password' placeholder='password' required />
+                    </div>
+                    <div className={styles.inputWrapper}>
+                        <span><TiKeyOutline /></span>
+                        <input value={rPassword} onChange={(e) => { setRpassword(e.target.value); setMessage('') }} type='password' id='r-password' name='r-password' placeholder='ripeti password' required />
+                    </div>
+                    <p className={styles.forgot}>
+                        <label>
+                            <input type='checkbox' value={true} required />
+                            Accetto i termini
+                        </label>
+                    </p>
                     <p className={styles.message}>{message}</p>
                     <button disabled={!activeBtn ? true : false}>Registrati</button>
                 </form>

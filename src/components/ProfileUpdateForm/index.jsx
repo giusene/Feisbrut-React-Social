@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
-import { setLogin } from './../../libs/loginSlice';
+import { useSelector } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { setLogin } from './../../libs/loginSlice';
 import { capitalizeFirstLetter } from "../../libs/utils";
-import { httpUPDATE, httpPOST, uploadImg } from "../../libs/http";
+import { httpUPDATE, uploadImg } from "../../libs/http";
 import { TiImage, TiStopwatch } from "react-icons/ti";
 
 import styles from './ProfileUpdateForm.module.scss'
 
 const ProfileUpdateFrom = () => {
     const [disableBtn, setDisableBtn] = useState(true);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const user = useSelector(state => state.login.value);
 
@@ -65,25 +66,26 @@ const ProfileUpdateFrom = () => {
 
     const updateProfile = () => {
         setDisableBtn(true);
-        httpUPDATE(`/users/${user.id}`, form).then(data => {
-            httpPOST('/checksession', {
-                userId: user.id,
-                login_time: user.login_time,
-                user_token: user.user_token,
-                logged: user.logged,
-                checkSession: user.checkSession
-              }).then(data => {
-                  dispatch(setLogin(data))
+        httpUPDATE(`/users/${user.id}`, form)
+        // .then(data => {
+            // httpPOST('/checksession', {
+            //     userId: user.id,
+            //     login_time: user.login_time,
+            //     user_token: user.user_token,
+            //     logged: user.logged,
+            //     checkSession: user.checkSession
+            //   }).then(data => {
+            //       dispatch(setLogin(data))
 
-                  window.localStorage.setItem('feisbrut', JSON.stringify({ 
-                    userId: data.id,
-                    login_time: data.login_time,
-                    user_token: data.user_token,
-                    checkSession: data.checkSession,
-                    logged: data.logged 
-                }))
-                })
-        })
+            //       window.localStorage.setItem('feisbrut', JSON.stringify({ 
+            //         userId: data.id,
+            //         login_time: data.login_time,
+            //         user_token: data.user_token,
+            //         checkSession: data.checkSession,
+            //         logged: data.logged 
+            //     }))
+            //     })
+        // })
     }
 
     return (

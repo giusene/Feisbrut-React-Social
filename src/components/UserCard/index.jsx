@@ -1,5 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { setLogin } from './../../libs/loginSlice';
+import { useSelector } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { setLogin } from './../../libs/loginSlice';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './UserCard.module.scss';
@@ -11,31 +12,31 @@ import { httpPOST } from '../../libs/http';
 const UserCard = ({ user, btn, status }) => {
     const profile = useSelector(state => state.login.value);
     const [disabled, setDisabled] = useState(false);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const friendShipREQ = (friendId, userId) => {
         setDisabled(true);
         httpPOST('/sendfriendrequest', { myId: userId, friendId: friendId })
-        .then(data => {
-            httpPOST('/checksession', {
-                userId: profile.id,
-                login_time: profile.login_time,
-                user_token: profile.user_token,
-                logged: profile.logged,
-                checkSession: profile.checkSession
-              }).then(data => {
-                  dispatch(setLogin(data))
+        // .then(data => {
+            // httpPOST('/checksession', {
+            //     userId: profile.id,
+            //     login_time: profile.login_time,
+            //     user_token: profile.user_token,
+            //     logged: profile.logged,
+            //     checkSession: profile.checkSession
+            //   }).then(data => {
+            //       dispatch(setLogin(data))
 
-                  window.localStorage.setItem('feisbrut', JSON.stringify({ 
-                    userId: data.id,
-                    login_time: data.login_time,
-                    user_token: data.user_token,
-                    checkSession: data.checkSession,
-                    logged: data.logged 
-                }))
+            //       window.localStorage.setItem('feisbrut', JSON.stringify({ 
+            //         userId: data.id,
+            //         login_time: data.login_time,
+            //         user_token: data.user_token,
+            //         checkSession: data.checkSession,
+            //         logged: data.logged 
+            //     }))
                   
-                })
-        })
+            //     })
+        // })
     }
 
     useEffect(() => {
