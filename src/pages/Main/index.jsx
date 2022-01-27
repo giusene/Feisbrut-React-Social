@@ -43,14 +43,14 @@ const Main = () => {
                     <Routes>
                         <Route path="/" element={<Feeds />} />
                         <Route path="/Feisbrut-React-Social" element={<Feeds />} />
-                        <Route path="/friends" element={<Friends />} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="/profileupdate" element={<ProfileUpdate />} />
-                        <Route path="/messages" element={<Messages />} />
-                        <Route path="/discussion" element={<Discussion />} />
-                        <Route path="/post" element={<PostPage />} />
-                        <Route path="/notifies" element={<Notifies />} />
-                        <Route path="/people" element={<People />} />
+                        <Route path="/Feisbrut-React-Social/friends" element={<Friends />} />
+                        <Route path="/Feisbrut-React-Social/profile" element={<Profile />} />
+                        <Route path="/Feisbrut-React-Social/profileupdate" element={<ProfileUpdate />} />
+                        <Route path="/Feisbrut-React-Social/messages" element={<Messages />} />
+                        <Route path="/Feisbrut-React-Social/discussion" element={<Discussion />} />
+                        <Route path="/Feisbrut-React-Social/post" element={<PostPage />} />
+                        <Route path="/Feisbrut-React-Social/notifies" element={<Notifies />} />
+                        <Route path="/Feisbrut-React-Social/people" element={<People />} />
                         <Route path="*" element={<h1>tutto</h1>} />
                     </Routes>
                 </main>
