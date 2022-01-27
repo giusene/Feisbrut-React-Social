@@ -53,7 +53,10 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
                         httpPOST('/posts', { ...formPostObject, photo: result.data.display_url, url: link }).then(() => {
                             setMessageInput('');
                             // DA TESTARE
-                            httpUPDATE(`/users/${user.id}`, {bio: {...user.bio, allPhotos: [...user.bio.allPhotos, {type: 'caricamenti', url: result.data.display_url}]}}).then(data => console.log(data))
+                            httpUPDATE(`/users/${user.id}`, {
+                                _id: user.db_id,
+                                bio: {...user.bio, allPhotos: [...user.bio.allPhotos, {type: 'caricamenti', url: result.data.display_url}]}
+                            })
                             setFormPostObject(postState);
                             setUploadInput({ name: 'Carica Foto' });
                             setReloader(reloader ? false : true);

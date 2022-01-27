@@ -58,7 +58,10 @@
           }
     @media all and (max-width: 767px) {
             &{
-                padding-top: calc($headerH + $headerH) ;
+                padding-top: calc($headerH + $headerH);
+                main{
+                    min-height: calc(100vh - $headerH - $headerH - $footerH );
+                }
             }
           }
     }

@@ -13,12 +13,12 @@ const Login = () => {
 
     return (
         <div className={styles.main} onClick={() => setOpen(!open)}>
-            <div className={styles.profileImg} style={{ backgroundImage: `url(${user.photo})` }}></div>
             <div className={styles.profileName}>
                 <p>{user.name}
                     {/* {user.bio.alias && `"${user.bio.alias}"`} */}
                 </p>
             </div>
+            <div className={styles.profileImg} style={{ backgroundImage: `url(${user.photo})` }}></div>
             <div className={styles.profileBtn}><TiArrowSortedDown /></div>
             {open &&
                 <div className={styles.dropDown}>
