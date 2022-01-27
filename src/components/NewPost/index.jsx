@@ -115,13 +115,14 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
             }
         }
         setFormPostObject({
+            db_id: user.db_id,
             authorId: user.id,
             text: messageInput,
             date: new Date().toISOString(),
             likes: [],
             comments: [],
         })
-    }, [messageInput, link.find, user.id])
+    }, [messageInput, link.find, user.id, user.db_id])
 
     return (
         <div className={styles.main}>
