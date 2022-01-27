@@ -22,7 +22,7 @@ const Friends = () => {
                 }
                 { user.friends.length > 0 ?
                     user.friends.map(friend => <UserCard key={friend.id} user={friend} status /> )
-                    : <p className={styles.nothing}>non ci sono notifiche</p>
+                    : <p className={styles.nothing}>non hai ancora amici</p>
                     }
             </div>
         </div>
