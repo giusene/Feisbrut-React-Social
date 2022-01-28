@@ -24,7 +24,7 @@ const PostReactions = ({ postContent, reloader, setReloader }) => {
             userId: `${user.id}`,
             postId: `${postContent.id}`,
             date: new Date().toISOString(),
-        }).then(data => setReloader(reloader ? false : true))
+        }).then(data => setReloader(!reloader))
     }
 
     const hadlerComment = (e, input, setInput) => {
