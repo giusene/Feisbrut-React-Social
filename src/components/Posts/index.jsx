@@ -14,9 +14,10 @@ const Posts = ({multi, single}) => {
     useEffect(()=> {
         const myFriends = user.friends.map(friend => {
             return friend.id
-        })
-
-        getPost(multi ? [...myFriends, user.id] : [single]).then(data => setPosts(data));
+        }) 
+        getPost(multi ? [...myFriends, user.id] : [single]).then(data => {
+            setPosts(data)
+        });
 
     }, [reloader, user.friends, multi, single, user.id])
 

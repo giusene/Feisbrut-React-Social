@@ -14,7 +14,7 @@ function App() {
   const setUser = useCallback(
     (data) => {
       dispatch(setLogin(data))
-      window.localStorage.setItem('feisbrut', JSON.stringify({ 
+        window.localStorage.setItem('feisbrut', JSON.stringify({ 
         userId: data.id,
         login_time: data.login_time,
         user_token: data.user_token,

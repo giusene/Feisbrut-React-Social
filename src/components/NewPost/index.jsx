@@ -138,11 +138,11 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
             comments: [],
         })
 
-        const postTimer = setInterval(() => {
-            postReloader()
-        }, 30000);
+        // const postTimer = setInterval(() => {
+        //     postReloader()
+        // }, 30000);
 
-        return () => clearInterval(postTimer);
+        // return () => clearInterval(postTimer);
 
     }, [messageInput, link.find, user.id, user.db_id, postReloader])
 

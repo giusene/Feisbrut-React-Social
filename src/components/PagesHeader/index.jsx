@@ -8,7 +8,7 @@ const PagesHeader = ({title, who}) => {
         <div className={styles.main}><h2>{title}</h2>
         {who &&
             <div className={styles.who}><TiMediaPlay /> 
-            <Link to={'/profile'} state={who.id}><div className={styles.img} style={{ backgroundImage: `url(${who.photo})` }}></div>
+            <Link to={'/Feisbrut-React-Social/profile'} state={who.id}><div className={styles.img} style={{ backgroundImage: `url(${who.photo})` }}></div>
             <p>{who.name} {who.surname}</p></Link>
             </div>
         }
