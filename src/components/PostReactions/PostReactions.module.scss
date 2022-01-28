@@ -21,7 +21,7 @@
                 cursor: pointer;
                 transition: $btn-trans;
                 margin-right: 5px;
-                &:hover, &.active{
+                &.active{
                     background-color: $red;
                     color: $white;
                 }
@@ -42,7 +42,7 @@
                 cursor: pointer;
                 transition: $btn-trans;
                 margin-left: 5px;
-                &:hover, &.active{
+                &.active{
                     background-color: $main;
                     color: $white;
                 }

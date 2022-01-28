@@ -42,7 +42,7 @@ const PostReactions = ({ postContent, reloader, setReloader }) => {
 
     useEffect(() => {
 
-    }, [postContent.likes])
+    }, [postContent.likes, reloader])
 
     return (
         <div className={styles.main}>
