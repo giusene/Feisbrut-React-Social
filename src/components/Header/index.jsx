@@ -15,7 +15,7 @@ const Header = () => {
 
         const updateUser = setInterval(() => {
             
-            httpPOST('/checksession', {
+            httpPOST(`/checksession/${user.id}`, {
                 userId: user.id,
                 login_time: user.login_time,
                 user_token: user.user_token,

@@ -28,7 +28,7 @@ function App() {
     if (window.localStorage.getItem('feisbrut')) {
       const user = JSON.parse(window.localStorage.getItem('feisbrut'));
       
-      httpPOST('/checksession', {
+      httpPOST(`/checksession/${user.userId}`, {
         userId: user.userId,
         login_time: user.login_time,
         user_token: user.user_token,
