@@ -63,7 +63,7 @@
                     border-radius: 5px;
                     text-transform: uppercase;
                     font-weight: bold;
-                    font-size: 11px;
+                    font-size: 22px;
                     padding: 0 10px;
                 }
                 .sendMessage {
@@ -96,6 +96,7 @@
                 &{
                     flex-wrap: wrap;
                     justify-content: center;
+                    flex-direction: column;
                     .profileImg{
                         margin: 0;
                         width: 180px;

@@ -53,6 +53,8 @@
                 background-color: $main;
             }
             .dropDown{
+                /// NASCOSTO IL DROPDOWN
+                display: none;
                 position: absolute;
                 padding: 10px 0;
                 background-color: $white;

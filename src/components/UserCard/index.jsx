@@ -58,7 +58,7 @@ const UserCard = ({ user, btn, status }) => {
                 
             </div></Link>
             <div className={styles.userName}><Link to={'/Feisbrut-React-Social/profile'} state={user.id}><h3>{user.name} {user.surname}</h3></Link></div>
-            {/* <div className={styles.userJob}><p>{user.bio.job}</p></div> */}
+            <div className={styles.userJob}><p>{user.bio.job}</p></div>
             <div className={styles.buttons}>
                 {btn && user.id !== profile.id &&
                     <button onClick={() => friendShipREQ(user.id, profile.id)}  disabled={disabled}>{

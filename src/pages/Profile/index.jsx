@@ -79,15 +79,16 @@ const Profile = () => {
                         <p>{profile.bio.job}</p>
                     </div>
                     <div className={styles.btnWrapper}>
+
                         {myProfile.id !== profile.id &&
-                            <button className={styles.sendRequest} onClick={() => friendShipREQ(profile.id, myProfile.id)}  disabled={disabled}>{
-                                    myProfile.friendreq.filter((item) => item.id === profile.id).length > 0 ? <TiUserAdd /> :
-                                        myProfile.friends.filter((item) => item.id === profile.id).length > 0 ? <TiTick /> : <TiUserAdd />
-                                }</button>}
+                            <button className={styles.sendRequest} onClick={() => friendShipREQ(profile.id, myProfile.id)} disabled={disabled}>{
+                                myProfile.friendreq.filter((item) => item.id === profile.id).length > 0 ? <TiUserAdd /> :
+                                    myProfile.friends.filter((item) => item.id === profile.id).length > 0 ? <TiTick /> : <TiUserAdd />
+                            }</button>}
                         {myProfile.id !== profile.id ?
                             <button className={styles.sendMessage}><TiMail /></button> :
                             <button className={styles.optionBtn}>
-                            <BsThreeDots />
+                                <BsThreeDots />
                             </button>
                         }
                     </div>
