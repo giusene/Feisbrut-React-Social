@@ -29,7 +29,7 @@ const Messages = () => {
         httpPOST('/deletemessages', {
             userId: user.id,
             chatId: toRemove
-        })
+        }).then(setToRemove([]))
         // .then(data => {
         //     httpPOST('/checksession', {
         //         userId: user.id,

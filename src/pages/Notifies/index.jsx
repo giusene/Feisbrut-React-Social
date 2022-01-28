@@ -35,7 +35,7 @@ const Notifies = () => {
             type: "delete",
             userId: user.id,
             notification_id: toRemove
-        })
+        }).then(setToRemove([]))
         // .then(data => {
         //     httpPOST('/checksession', {
         //         userId: user.id,

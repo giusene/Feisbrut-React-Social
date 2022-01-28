@@ -22,8 +22,8 @@ const Header = () => {
                 logged: user.logged,
                 checkSession: user.checkSession
             }).then(data => {
-                console.log(user.id)
-                console.log('check session...')
+                // console.log(user.id)
+                // console.log('check session...')
                     dispatch(setLogin({...data, id: user.id}))
                     window.localStorage.setItem('feisbrut', JSON.stringify({
                     userId: user.id,

@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { setLogin } from './../../libs/loginSlice';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { http, httpPOST } from './../../libs/http'
 import styles from './Profile.module.scss';
@@ -86,7 +87,9 @@ const Profile = () => {
                                     myProfile.friends.filter((item) => item.id === profile.id).length > 0 ? <TiTick /> : <TiUserAdd />
                             }</button>}
                         {myProfile.id !== profile.id ?
-                            <button className={styles.sendMessage}><TiMail /></button> :
+                            <Link to={'/Feisbrut-React-Social/discussion'} state={{ user: profile }}>
+                                <button className={styles.sendMessage}><TiMail /></button>
+                            </Link> :
                             <button className={styles.optionBtn}>
                                 <BsThreeDots />
                             </button>
