@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Feisbrut-React-Social/static/css/main.66364a04.css",
-    "main.js": "/Feisbrut-React-Social/static/js/main.8281d8cb.js",
+    "main.js": "/Feisbrut-React-Social/static/js/main.4b5bc669.js",
     "static/js/787.022a8c81.chunk.js": "/Feisbrut-React-Social/static/js/787.022a8c81.chunk.js",
     "static/media/socialbg.jpeg": "/Feisbrut-React-Social/static/media/socialbg.589a623ad350b7c82e8a.jpeg",
     "static/media/facebook.ttf": "/Feisbrut-React-Social/static/media/facebook.7ca587aeb7142d877d0c.ttf",
     "index.html": "/Feisbrut-React-Social/index.html",
     "main.66364a04.css.map": "/Feisbrut-React-Social/static/css/main.66364a04.css.map",
-    "main.8281d8cb.js.map": "/Feisbrut-React-Social/static/js/main.8281d8cb.js.map",
+    "main.4b5bc669.js.map": "/Feisbrut-React-Social/static/js/main.4b5bc669.js.map",
     "787.022a8c81.chunk.js.map": "/Feisbrut-React-Social/static/js/787.022a8c81.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.66364a04.css",
-    "static/js/main.8281d8cb.js"
+    "static/js/main.4b5bc669.js"
   ]
 }
