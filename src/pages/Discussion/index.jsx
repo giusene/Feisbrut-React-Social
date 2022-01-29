@@ -18,37 +18,13 @@ const Discussion = () => {
     const user = useSelector(state => state.login.value);
 
 
-    // const reload = useCallback(
-    //     () => {
-    //         httpPOST('/checksession', {
-    //             userId: user.id,
-    //             login_time: user.login_time,
-    //             user_token: user.user_token,
-    //             logged: user.logged,
-    //             checkSession: user.checkSession
-    //           }).then(data => {
-    //               dispatch(setLogin(data))
-
-    //               window.localStorage.setItem('feisbrut', JSON.stringify({ 
-    //                 userId: data.id,
-    //                 login_time: data.login_time,
-    //                 user_token: data.user_token,
-    //                 checkSession: data.checkSession,
-    //                 logged: data.logged 
-    //             }))
-
-    //             })
-    //     }, [dispatch, user.id, user.login_time, user.user_token, user.logged, user.checkSession])
-    
-
     useEffect(() => {
         window.scrollTo(0, 0);
-        chatWrapper.current.scrollTop = chatWrapper.current.scrollHeight
         httpPOST('/readmessages', {
             my_id: user.id,
             friend_id: stateFromLink.state.user.id
         })
-        // .then(data => reload)
+        chatWrapper.current.scrollTop = chatWrapper.current.scrollHeight
     }, [ stateFromLink.state.user.id, user.id, chatWrapper.current.scrollHeight])
 
 
@@ -61,23 +37,6 @@ const Discussion = () => {
         })
         .then(data => {
             setInput('');
-            // httpPOST('/checksession', {
-            //     userId: user.id,
-            //     login_time: user.login_time,
-            //     user_token: user.user_token,
-            //     logged: user.logged,
-            //     checkSession: user.checkSession
-            //   }).then(data => {
-            //       dispatch(setLogin(data))
-
-            //       window.localStorage.setItem('feisbrut', JSON.stringify({ 
-            //         userId: data.id,
-            //         login_time: data.login_time,
-            //         user_token: data.user_token,
-            //         checkSession: data.checkSession,
-            //         logged: user.logged 
-            //     }))
-            //     })
         })
     }
 

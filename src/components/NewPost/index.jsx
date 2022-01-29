@@ -1,7 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { setLogin } from './../../libs/loginSlice';
 import { httpPOST, uploadImg, linkPreview, httpUPDATE } from '../../libs/http';
 import styles from './NewPost.module.scss';
 import { TiPencil, TiImage, TiArrowForward } from "react-icons/ti";
@@ -28,7 +26,6 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
     const [formPostObject, setFormPostObject] = useState(postState);
 
     // const dispatch = useDispatch();
-
     const [btnDisabled, setBtnDisabled] = useState(false);
 
     const handlerUploadRemove = () => {
@@ -65,25 +62,7 @@ const NewPost = ({ setReloader, reloader, userInfo }) => {
                                 photo: user.photo,
                                 bio: {...user.bio, allPhotos: [...user.bio.allPhotos, {type: 'caricamenti', url: result.data.display_url}]}
                             })
-                            // .then(data => {
-                            //     httpPOST('/checksession', {
-                            //         userId: user.id,
-                            //         login_time: user.login_time,
-                            //         user_token: user.user_token,
-                            //         logged: user.logged,
-                            //         checkSession: user.checkSession
-                            //       }).then(data => {
-                            //           dispatch(setLogin(data))
-
-                            //           window.localStorage.setItem('feisbrut', JSON.stringify({ 
-                            //             userId: data.id,
-                            //             login_time: data.login_time,
-                            //             user_token: data.user_token,
-                            //             checkSession: data.checkSession,
-                            //             logged: data.logged 
-                            //         }))
-                            //         })
-                            // })
+                       
                             setFormPostObject(postState);
                             setUploadInput({ name: 'Carica Foto' });
                             setReloader(!reloader);

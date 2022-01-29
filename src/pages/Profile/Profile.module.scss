@@ -27,7 +27,8 @@
                background-position: center;
                border-radius: 50%;
                margin-left: 20px;
-               border: 5px solid $white; 
+               border: 5px solid $white;
+               cursor: pointer;
             }
             .profileInfo{
                 flex-grow: 1;

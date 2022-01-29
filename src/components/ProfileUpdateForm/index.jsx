@@ -67,25 +67,6 @@ const ProfileUpdateFrom = () => {
     const updateProfile = () => {
         setDisableBtn(true);
         httpUPDATE(`/users/${user.id}`, form)
-        // .then(data => {
-            // httpPOST('/checksession', {
-            //     userId: user.id,
-            //     login_time: user.login_time,
-            //     user_token: user.user_token,
-            //     logged: user.logged,
-            //     checkSession: user.checkSession
-            //   }).then(data => {
-            //       dispatch(setLogin(data))
-
-            //       window.localStorage.setItem('feisbrut', JSON.stringify({ 
-            //         userId: data.id,
-            //         login_time: data.login_time,
-            //         user_token: data.user_token,
-            //         checkSession: data.checkSession,
-            //         logged: data.logged 
-            //     }))
-            //     })
-        // })
     }
 
     return (

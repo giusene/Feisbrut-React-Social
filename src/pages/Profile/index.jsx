@@ -1,13 +1,12 @@
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { setLogin } from './../../libs/loginSlice';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { http, httpPOST } from './../../libs/http'
 import styles from './Profile.module.scss';
 import { TiMail, TiPencil, TiGroup, TiImage, TiUserAdd, TiTick } from "react-icons/ti";
 import { BsThreeDots } from "react-icons/bs";
+import Lightbox from 'react-image-lightbox';
 
 
 
@@ -21,7 +20,8 @@ const Profile = () => {
     const myProfile = useSelector(state => state.login.value);
     const [disabled, setDisabled] = useState(false);
     const [link, setLink] = useState('post');
-    // const dispatch = useDispatch();
+    
+    const [lightbox, setLightbox] = useState(false)
 
     const stateFromLink = useLocation();
     const [profile, setProfile] = useState({
@@ -47,25 +47,6 @@ const Profile = () => {
     const friendShipREQ = (friendId, userId) => {
         setDisabled(true);
         httpPOST('/sendfriendrequest', { myId: userId, friendId: friendId })
-        // .then(data => {
-        //     httpPOST('/checksession', {
-        //         userId: myProfile.id,
-        //         login_time: myProfile.login_time,
-        //         user_token: myProfile.user_token,
-        //         logged: myProfile.logged,
-        //         checkSession: myProfile.checkSession
-        //       }).then(data => {
-        //           dispatch(setLogin(data))
-
-        //           window.localStorage.setItem('feisbrut', JSON.stringify({ 
-        //             userId: data.id,
-        //             login_time: data.login_time,
-        //             user_token: data.user_token,
-        //             checkSession: data.checkSession,
-        //             logged: data.logged 
-        //         }))
-        //         })
-        // })
     }
 
     return (
@@ -74,7 +55,7 @@ const Profile = () => {
             <div className={styles.header}>
                 <div className={styles.cover} style={{ backgroundImage: `url(${profile.bio.cover})` }}></div>
                 <div className={styles.info}>
-                    <div className={styles.profileImg} style={{ backgroundImage: `url(${profile.photo})` }}></div>
+                    <div onClick={() => setLightbox(true)} className={styles.profileImg} style={{ backgroundImage: `url(${profile.photo})` }}></div>
                     <div className={styles.profileInfo}>
                         <h3>{profile.name} {profile.bio.alias && `"${profile.bio.alias}"`} {profile.surname}</h3>
                         <p>{profile.bio.job}</p>
@@ -130,6 +111,13 @@ const Profile = () => {
                             </>}
                 </div>
             </div>
+
+            {lightbox && (
+            <Lightbox
+               mainSrc={profile.photo}
+               onCloseRequest={() => setLightbox(false)}
+            />
+         )}
         </div>
     )
 }

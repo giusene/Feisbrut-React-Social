@@ -6,11 +6,34 @@
     margin: 10px auto;
     background-color: $white;
     border-radius: $componentRadius;
-    display: flex;
-    flex-wrap: wrap;
-    img {
-        margin: 10px;
-        max-height: 150px;
-        width: auto;
+    ul {
+        list-style: none;
+        display: flex;
+        li {
+            margin-right: 10px;
+            cursor: pointer;
+            &.active{
+                h4{
+                    color: $main;
+                }
+            }
+        }
+    }
+    .photosWrapper{
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 180px;
+        img {
+            margin: 10px;
+            max-height: 150px;
+            width: auto;
+            cursor: pointer;
+        }
+        p {
+            font-size: 12px;
+            text-align: center;
+            color: $light-text-color;
+            width: 100%;
+        }
     }
 }
