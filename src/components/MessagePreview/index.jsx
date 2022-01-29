@@ -11,7 +11,11 @@ const MessagePreview = ({ messageId, message, removeList }) => {
         <div className={styles.main}>
             <input type="checkbox" onChange={(e) => removeList(e, messageId)} />
             <Link to={'/Feisbrut-React-Social/discussion'} state={message}>
-                <div className={styles.status}></div>
+            { 
+                (Date.now() / 60000) - (message.user.login_time / 60000) <= 1 ? <div className={styles.green}></div> :
+                (Date.now() / 60000) - (message.user.login_time / 60000) > 1 && (Date.now() / 60000) - (message.user.login_time / 60000) < 5 ? <div className={styles.yellow}></div> :
+                <div className={styles.gray}></div>
+            }
                 <div className={styles.profileImg} style={{ backgroundImage: `url(${message.user.photo})` }}></div>
                 <div className={styles.name}>
                     {message.user.name} {message.user.surname}

@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import styles from './Logo.module.scss';
 
 const Logo = () => {
     return (
-        <p className={styles.main}>feisbrut</p>
+        <Link to={'/Feisbrut-React-Social/'}><p className={styles.main}>feisbrut</p></Link>
     )
 }
 

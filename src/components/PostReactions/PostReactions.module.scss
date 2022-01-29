@@ -57,6 +57,7 @@
         .commentrows{
             max-height: 500px;
             overflow: auto;
+            scroll-behavior: smooth;
         }
         &.open{
             margin-top: 10px;

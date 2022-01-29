@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { likeFunc } from './../../libs/http';
 import styles from './PostReactions.module.scss';
@@ -12,6 +12,7 @@ import { httpCOMMENT } from './../../libs/http';
 const PostReactions = ({ postContent, reloader, setReloader }) => {
     const user = useSelector(state => state.login.value);
     const [showMessage, setShowMessage] = useState(false);
+    const commentsWrapper = useRef(0)
 
     const handlerLike = (likeType) => {
         if (likeType === 'like') {
@@ -41,11 +42,12 @@ const PostReactions = ({ postContent, reloader, setReloader }) => {
     }
 
     useEffect(() => {
-
-    }, [postContent.likes])
+        commentsWrapper.current.scrollTop = commentsWrapper.current.scrollHeight
+    }, [commentsWrapper.current.scrollHeight])
 
     return (
         <div className={styles.main}>
+        
             <div className={styles.buttons}>
                 <div className={styles.likes}>
                     {postContent.likes.filter(like => like.authorId === user.id).length > 0 ?
@@ -61,7 +63,7 @@ const PostReactions = ({ postContent, reloader, setReloader }) => {
                 </div>
             </div>
             <div className={(!showMessage ? styles.commentsContainer : `${styles.commentsContainer} ${styles.open}`)}>
-                        <div className={styles.commentrows}>
+                        <div ref={commentsWrapper} className={styles.commentrows}>
                         {postContent.comments.map((comment, index) => <CommentRow key={index} comment={comment}/>)}
                         </div>
                         <CommentForm sendFunc={hadlerComment}/>

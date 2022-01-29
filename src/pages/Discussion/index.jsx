@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 // import { useEffect, useCallback } from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ import { httpPOST } from '../../libs/http';
 const Discussion = () => {
     const stateFromLink = useLocation();
     // const dispatch = useDispatch();
-    
+    const chatWrapper = useRef(0)
     const user = useSelector(state => state.login.value);
 
 
@@ -43,12 +43,13 @@ const Discussion = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        chatWrapper.current.scrollTop = chatWrapper.current.scrollHeight
         httpPOST('/readmessages', {
             my_id: user.id,
             friend_id: stateFromLink.state.user.id
         })
         // .then(data => reload)
-    }, [ stateFromLink.state.user.id, user.id])
+    }, [ stateFromLink.state.user.id, user.id, chatWrapper.current.scrollHeight])
 
 
     const sendMessage = (e, input, setInput) => {
@@ -84,7 +85,7 @@ const Discussion = () => {
         <div className={styles.main}>
             <PagesHeader title={'Chat'} who={stateFromLink.state.user} />
             <div className={styles.content}>
-                <div className={styles.discussion}>
+                <div ref={chatWrapper} className={styles.discussion}>
                     {[stateFromLink.state.user.id] in user.messages &&
                         user.messages[stateFromLink.state.user.id].discussion.map((chatRow, index) =>
                             <ChatRow key={index} friend={stateFromLink.state.user} content={chatRow} />

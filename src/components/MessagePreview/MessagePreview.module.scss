@@ -15,11 +15,23 @@
         display: flex;
         align-items: center;
         height: 70px;
-        .status{
+        .green{
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: $green;
+            background-color: green;
+        }
+        .yellow{
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #f1b50e;
+        }
+        .gray{
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: gray;
         }
         .profileImg{
             width: 35px;

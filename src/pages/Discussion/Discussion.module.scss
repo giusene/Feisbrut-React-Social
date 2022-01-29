@@ -13,6 +13,7 @@
             height: calc(100vh - $headerH - $footerH - $pageHeaderH - $pageHeaderH);
             overflow: auto;
             padding: 20px;
+            scroll-behavior: smooth;
         }
         .chatInput{
             background-color: $white;
